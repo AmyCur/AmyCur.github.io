@@ -1,19 +1,19 @@
 ---
-import "../style/css/TopBar.css"
+import "../style/scss/TopBar.scss"
 const {Page="Page"} = Astro.props;
 ---
 
 <div id="top-bar">
     <div id="modules">
         <div id="left-module">
-            {Page} <a href="/"><button></button></a>
+            {Page} <a href="/AmyCur.github.io/"><button><i class="fa-solid fa-house"></i></button></a>
         </div>
         <div id="right-module">
             <!-- Should be bluesky logo but its a core for some reason -->
-            <a href="/"><button id="bluesky"></button></a>
-            <a href="projects"><button id="linkedin"></button></a>
-            <a href="about-me"><button id="instagram"></button></a>
-            <a href="about-me"><button id="tumblr"></button></a>
+            <a href="/AmyCur.github.io/"><button id="bluesky"><i class="fa-brands fa-bluesky"></i></button></a>
+            <a href="projects"><button id="linkedin"><i class="fa-brands fa-linkedin"></i></button></a>
+            <a href="about-me"><button id="instagram"><i class="fa-brands fa-instagram"></i></button></a>
+            <a href="about-me"><button id="tumblr"><i class="fa-brands fa-square-tumblr"></i></button></a>
         </div>
     </div>
 </div>
