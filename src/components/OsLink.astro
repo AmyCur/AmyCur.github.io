@@ -2,14 +2,17 @@
 const { windows, mac, linux } = Astro.props;
 ---
 
-<a href="#" id="text"
-   data-windows={windows}
-   data-mac={mac}
-   data-linux={linux}
->
-  <span><i id="icon"></i></span>
-  <slot />
-</a>
+<div id="link">
+  <a href="#" id="text"
+    data-windows={windows}
+    data-mac={mac}
+    data-linux={linux}
+  >
+    <span><i id="icon"></i></span>
+    <slot />
+  </a>
+</div>
+
 
 <script lang="js">
     const link = document.getElementById("text").dataset;
