@@ -1,0 +1,19 @@
+---
+import "../style/css/TopBar.css"
+const {Page="Page"} = Astro.props;
+---
+
+<div id="top-bar">
+    <div id="modules">
+        <div id="left-module">
+            {Page} <a href="/"><button></button></a>
+        </div>
+        <div id="right-module">
+            <!-- Should be bluesky logo but its a core for some reason -->
+            <a href="/"><button id="bluesky"></button></a>
+            <a href="projects"><button id="linkedin"></button></a>
+            <a href="about-me"><button id="instagram"></button></a>
+            <a href="about-me"><button id="tumblr"></button></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+#projects {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+#projects ul {
+  display: flex;
+  flex-direction: column;
+}
+#projects ul * {
+  margin-bottom: 2vh;
+}
+
+/*# sourceMappingURL=home.css.map */

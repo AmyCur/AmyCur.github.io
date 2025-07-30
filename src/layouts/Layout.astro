@@ -1,0 +1,20 @@
+---
+import "../style/css/global.css";
+import TopBar from "../components/TopBar.astro";
+const {Page="Page"} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{Page}</title>
+	</head>
+	<body style="display: flex; flex-direction: column;">
+		<TopBar Page={Page}/>
+		<span style="margin-top: 14vh;">
+		<slot />
+	</body>
+</html>

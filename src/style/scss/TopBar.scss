@@ -1,0 +1,67 @@
+$height: 10vh;
+
+#top-bar{
+    margin-bottom: $height;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    background: #1F1F1F;
+    background: linear-gradient(0deg, #1F1F1F 0%, #171717 100%);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    #modules{
+        display: flex;
+        height: $height;
+        width: 90%;
+        justify-content: space-between;
+        align-items: center;
+
+        button{
+            width: 6w;
+            height: 2vh;
+            background: none;
+            border: none;
+            font-size: 1.5vw;
+
+            margin: {
+                left: .6vw;
+                right: .6vw;
+            };
+        }
+
+        #left-module{
+            font-size: 2vw;
+
+            button{
+                font-size: 1vw;
+            }
+        }
+
+        #right-module{
+            *{
+                transition: all .15s ease;
+            }           
+
+            #bluesky:hover{
+                color: #1185FE;
+            }
+
+            #linkedin:hover{
+                color: #0A63BC;
+            }
+
+            #instagram:hover{
+                color: #FD0069;
+            }
+
+            #tumblr:hover{
+                color: #0077ff;
+            }
+        }
+    }
+    
+
+}
