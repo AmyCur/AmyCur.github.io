@@ -4,6 +4,7 @@
     justify-content: start;
     align-items: center;
     text-align: center;
+    text-decoration: none;
 
     p{
         width: 700px;
@@ -15,7 +16,7 @@
 
     #download{
         height: 2.5em;
-        width: 8em;
+        width: 12em;
         background-color: #24273A;
         border-radius: 0.2vw;
         border: solid .1em #fff;
@@ -48,4 +49,4 @@ a{
 button{
     background: none;
     border: none;
-    }
+}

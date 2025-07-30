@@ -41,9 +41,17 @@ $height: 10vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                height: 100%;
+
                 button{
-                    font-size: 1vw;
+                    font-size: 1.5vw;
                     height: 100%;
+
+                    &:hover{
+                        i{
+                            color: #aaaaaa;                        
+                        }
+                    }
                 }
             }
             
@@ -51,23 +59,31 @@ $height: 10vh;
 
         #right-module{
             *{
-                transition: all .15s ease;
+                transition: all .1s ease;
             }           
 
             #bluesky:hover{
-                color: #1185FE;
+                i{
+                    color: #1185FE;
+                }
             }
 
             #linkedin:hover{
-                color: #0A63BC;
+                i{
+                   color: #0A63BC;
+                }
             }
 
             #instagram:hover{
-                color: #FD0069;
+                i{
+                    color: #FD0069;
+                }
             }
 
             #tumblr:hover{
-                color: #0077ff;
+                i{
+                    color: #0077ff;
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import "../../style/scss/project-page.scss"
-
+import OSLink from "../../components/OsLink.astro"
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -21,8 +21,14 @@ import "../../style/scss/project-page.scss"
             <a href="https://github.com/AmyCur/MM_Proj">code for this project</a> and made the majority of the models.
         </p>
 
-        <a href="/" id="download">
-            <button>Download game</button>
-        </a>        
+        <div id="download">
+            <OSLink
+                windows="https://github.com/AmyCur/MM_Proj/releases/download/v1.0.0/MetaMenaces_Windows.zip"
+                mac="https://github.com/AmyCur/MM_Proj/releases/download/v1.0.0/MetaMenaces_Mac.zip"
+                linux="https://github.com/AmyCur/MM_Proj/releases/download/v1.0.0/MetaMenaces_Linux.zip">
+                <button>Download game</button>
+            </OSLink>
+        </div>
+              
     </div>
 </Layout>
