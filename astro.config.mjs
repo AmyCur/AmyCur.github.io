@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://amycur.github.io/',
+  site: 'https://AmyCur.github.io/',
   base: 'AmyCur.github.io',
 })
