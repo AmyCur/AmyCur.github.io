@@ -1,27 +1,32 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Project from '../components/project.astro';
-import "../style/scss/home.scss";
-
+import Page from '../layouts/Page.astro';
+import Heading from '../components/heading.astro';
+import SmallText from '../components/small-text.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout Page="Home">
-	<div id="projects">
-		<ul>
-			<Project Heading="Meta Menaces" Image="url(/pine-tree.jpg)" Height="44vh" Link="/projects/meta-menaces"/>
-			<Project Heading="Other Project" Image="url(/tree2.avif)" Height="20vh" Link="/projects/other-proj"/>
-		</ul>	
-		<ul>
-			<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-			<Project Heading="Important" Image="url(/pine-tree.jpg)" Height="44vh" />
-		</ul>	
-		<ul>
-			<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-			<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-			<Project Heading="Project" Image="url(/autumn.jpg)" Height="20vh" />
-		</ul>	
-		
-	</div>
-</Layout>
+<Page>
+    <span slot="heading"><Heading>Home</Heading></span>
+    <span slot="top">            
+        <p>
+            Hi my names Amy<SmallText>(She/Her)</SmallText>, im a games 
+            developer from England who enjoys making 
+            games and theming her linux <SmallText>(Arch btw)</SmallText>
+        </p>
+
+        <p>
+            This page is just a passion project ive been working 
+            on, the buttons do stuff ig 
+        </p>
+    </span>
+    <span slot="other" id="flags">
+        <div class="tooltip" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Transgender_Pride_flag.svg/800px-Transgender_Pride_flag.svg.png);">
+            <span class="tooltiptext">Trans woman</span>
+        </div>
+
+        <div class="tooltip" style="background-image: url(https://mrflag.com/wp-content/uploads/2022/02/mrflag_omnisexual_152_91.jpg);">
+            <span class="tooltiptext"><a href="https://lgbtqia.fandom.com/wiki/Omnisexual">Omnisexual</a></span>
+        </div>
+    </span>   
+</Page>

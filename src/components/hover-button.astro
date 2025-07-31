@@ -1,0 +1,32 @@
+---
+const {unhovered, hovered, depressed} = Astro.props;
+---
+
+<span id="span"
+    data-unhov={unhovered}
+    data-hov={hovered}
+    data-dep={depressed}
+    >
+    <img src="/home-button.png" id="image">
+</span>
+
+
+
+<script lang="js">
+    const isHover = e => e.parentElement.querySelector(':hover') === e;    
+
+    const image = document.getElementById('image');
+    const span = document.getElementById("span");
+
+    const unhoveredImage = span.dataset.unhov;
+    const hoveredImage = span.dataset.hov;
+    const depressedImage = span.dataset.dep;
+
+    document.addEventListener('mousemove', function checkHover() {
+    const hovered = isHover(image);
+    if (hovered !== checkHover.hovered) {
+        hovered ? image.src = hoveredImage : image.src = unhoveredImage;
+        checkHover.hovered = hovered;
+    }
+    });
+</script>

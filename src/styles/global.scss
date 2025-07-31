@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+*{
+    font-family: "VT323", monospace;
+}
+
+
+@keyframes rainbow {
+
+    0% {color: #809cc1;}
+    9% {color: #81a4d2;}
+    18% {color: #81a4d2;}
+    27% {color: #8ab0e0;}
+    36% {color: #90b9eb;}
+    45% {color: #9bc8ff;}
+    54% {color: #a5ccfc;}
+    63% {color: #9bc8ff;}
+    72% {color: #90b9eb;}
+    81% {color: #8ab0e0;}
+    90% {color: #81a4d2;}
+    100% {color: #809cc1;}
+}
+
+@keyframes HoverColour {    
+    0% {color: #D8B678;}    
+    33% {color: #e3bf7b;}    
+    66% {color: #edce93;} 
+    100% {color: #e3bf7b;}     
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://i.pinimg.com/originals/fc/01/fc/fc01fcf41d53c4cab99e05c2dcaf848f.gif");
+    background-size: 25%;
+}
+
+

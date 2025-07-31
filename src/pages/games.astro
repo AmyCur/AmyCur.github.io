@@ -1,0 +1,21 @@
+---
+import Page from "../layouts/Page.astro"
+import Heading from "../components/heading.astro"
+import "../styles/games.scss"
+import Game from "../components/games/game.astro"
+---
+
+<Page>
+    <span slot="heading">
+        <Heading>Games</Heading>
+    </span>
+    <span slot="top">
+        <div id="games">
+            <Game name="The Meta Menaces" url="https://github.com/AmyCur/MM_Proj/releases/"/>
+            <Game url="https://github.com/AmyCur/MM_Proj/releases/"/>
+            <Game url="https://github.com/AmyCur/MM_Proj/releases/"/>
+            <Game url="https://github.com/AmyCur/MM_Proj/releases/"/>
+            <Game url="https://github.com/AmyCur/MM_Proj/releases/"/>        
+        </div>
+    </span>
+</Page>

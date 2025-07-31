@@ -1,0 +1,26 @@
+---
+import Layout from "./Layout.astro";
+import "../styles/page.scss"
+import Button from "../components/Button.astro";
+---
+
+<Layout>
+    <div id="centre-box">
+        <div id="side-bar">
+            <Button href="/">Home</Button>
+            <Button href="/about">About Me</Button>
+            <Button href="/games">My Games</Button>
+            <Button href="/#">Home</Button>
+        </div>
+        <div id="main-box">
+            <slot name="heading" />
+            <div id="text">
+                <div id="top">
+                    <slot name="top"/>
+                </div>
+                <slot name="other" />
+            </div>
+            
+        </div>
+    </div>
+</Layout>
