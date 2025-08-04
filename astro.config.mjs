@@ -4,5 +4,5 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 
 export default defineConfig({
-  site: 'https://amycur.github.io',
+  site: 'https://AmyCur.github.io',
 })
