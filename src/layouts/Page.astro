@@ -8,20 +8,29 @@ const {heading} = Astro.props;
 ---
 
 <Layout>
+    <script src="../js/check_url.js" />
     <div id="centre-box">
-        <div id="side-bar">
-            <Button href="/">Home</Button>
-            <Button href="/about">About Me</Button>
-            <Button href="/games">My Games</Button>
-        </div>
-        <div id="main-box">
-            <div id="text">
-                <div id="top">
-                    <Heading>{heading}</Heading>
-                    <slot />
-                </div>
+        <div class="row">
+            <div id="top-bar">
+                hello this is my other row
             </div>
-            
+        </div>
+        
+        <div class="row">
+            <div id="side-bar">
+                <Button href="/">Home</Button>
+                <Button href="/about">About Me</Button>
+                <Button href="/games">My Games</Button>
+            </div>
+            <div id="main-box">
+                <div id="text">
+                    <div id="top">
+                        <Heading>{heading}</Heading>
+                        <slot />
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 </Layout>
