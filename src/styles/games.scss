@@ -26,11 +26,11 @@
         animation-timing-function: linear;     
 
 
-        *{
+        &>*{
             padding: .4vw;
         }
 
-                button{
+        button{
             background-color: #00000000;
             color: white;
             border: none;
