@@ -1,0 +1,27 @@
+---
+import Layout from "./Layout.astro";
+import "../styles/page.scss"
+import Button from "../components/Button.astro";
+import Heading from "../components/heading.astro";
+
+const {heading} = Astro.props;
+---
+
+<Layout>
+    <div id="centre-box">
+        <div id="side-bar">
+            <Button href="/">Home</Button>
+            <Button href="/about">About Me</Button>
+            <Button href="/games">My Games</Button>
+        </div>
+        <div id="main-box">
+            <div id="text">
+                <div id="top">
+                    <Heading>{heading}</Heading>
+                    <slot />
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</Layout>

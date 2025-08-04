@@ -1,0 +1,47 @@
+---
+const { windows, mac, linux } = Astro.props;
+---
+
+<div id="link">
+  <a href="#" id="OSLink-Text"
+    data-windows={windows}
+    data-mac={mac}
+    data-linux={linux}
+  >
+    <i id="icon"></i>
+    <slot />
+  </a>
+</div>
+
+
+<script lang="js">
+    const link = document.getElementById("OSLink-Text").dataset;
+
+    // Hack to get a refence to the input thingies (idk if its a hack feels like it)
+    const windowsHref = link.windows;
+    const macHref = link.mac;
+    const linuxHref = link.linux;
+
+    let href = "#";
+    let osIcon="";
+
+    const userAgent = window.navigator.userAgent;
+
+    if (userAgent.indexOf("Win") !== -1){
+      href = windowsHref;
+      osIcon="fa-brands fa-windows";
+    }
+    else if (userAgent.indexOf("Mac") !== -1){
+      href = macHref;
+      osIcon="fa-brands fa-apple";
+    }
+    else if (userAgent.indexOf("Linux") !== -1) {
+      href = linuxHref;
+      osIcon="fa-brands fa-linux";
+    }
+    
+    document.getElementById("icon").className=osIcon;
+    document.getElementById("OSLink-Text").href = href;
+    
+</script>
+

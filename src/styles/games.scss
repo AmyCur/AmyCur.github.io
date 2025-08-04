@@ -1,0 +1,59 @@
+#games{
+    display: flex;
+    flex-direction: column;
+    $width: 60vw;
+    width: ($width * 2 / 3 - 1) * 0.7;
+    
+
+    .game{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1vh;
+        
+        *{
+            padding: .4vw;
+        }
+
+        font-size: 1.6vw;    
+        
+        transition: all .1s ease;
+        animation-name: rainbow;
+        animation-duration: 2s;
+        animation-iteration-count:  infinite;
+        animation-timing-function: linear;     
+
+        button{
+            background-color: #00000000;
+            color: white;
+            border: none;
+        }
+
+        a{
+            text-align: center;
+            width: 10vw;
+
+            text-decoration: none;
+            background-color: #384658;
+            padding: .4vw;
+            border-radius: .4vw;
+            color: white;
+
+            &:hover{
+                &, button{
+                    cursor: pointer;
+                    background-color: #415166;
+                    transition: all .1s ease;
+                    animation-name: HoverColour;
+                    animation-duration: .5s;
+                    animation-iteration-count:  infinite;
+                    animation-timing-function: linear;  
+                }
+                
+                                        
+            }
+        }
+
+    }
+
+    
+}
