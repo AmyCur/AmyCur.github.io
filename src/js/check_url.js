@@ -1,3 +1,3 @@
 const url = window.location.href;
 
-document.getElementById("top-bar").innerHTML=`<p>URL: ${url}</p>`
+document.getElementById("top-bar-text").innerText=`URL: ${url}`
