@@ -1,0 +1,78 @@
+---
+const {href="/", img="https://terraria.wiki.gg/images/thumb/c/cd/Frost_Legion_Battle.png/320px-Frost_Legion_Battle.png?a87b06", name="Name", desc="This is a description for the game"} = Astro.props;
+---
+
+<a class="game" href={href}>
+    <div class="left">
+        <div class="name">{name}</div>
+        <div class="desc">{desc}</div>
+    </div>
+    <div class="right">
+        <img src={img} alt="">
+    </div>
+
+</a>
+
+<style lang="scss">
+    .game{
+        background-color: black;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+        
+        border: solid .2em white;
+        height: 10em;
+        transition: height .1s ease, width .1s ease;
+        border-radius: .5em;
+        width: 80%;
+
+        &:hover{
+            height: 11em;
+            width: 90%;
+
+            img{
+                height: 9em;
+            }
+ 
+            .left{
+                .name{
+                    font-size: 2.2em;
+                }
+                .desc{
+                    font-size: 1.1em;
+                }
+            }
+        }
+
+        img{
+            transition: height .1s ease, width .1s ease;
+            height: 8em;
+            border-radius: .4em;
+        }
+
+        .left{
+            display: flex;
+            flex-direction: column;
+            margin: 1em;
+
+            .name{
+                transition: font-size .1s ease;
+                font-size: 2em;
+            }
+
+            .desc{
+                color: #b0b0b0;
+                transition: font-size .1s ease;
+
+            }
+        }
+
+        .right{
+            display: flex;
+            margin: 1em;
+        }
+    }
+</style>
