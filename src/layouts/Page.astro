@@ -31,7 +31,6 @@ const {header} = Astro.props;
     }
 
     #centre{
-        
         overflow: hidden;
     }
 
@@ -40,7 +39,6 @@ const {header} = Astro.props;
             height: 15vh;
             flex-direction: row;
             justify-content: space-evenly;
-            align-items: center;
 
             a.button{
                 font-size: 4vw;
@@ -66,17 +64,15 @@ const {header} = Astro.props;
 
             flex-direction: column;
             justify-content: space-evenly;
-            font-size: 1.8em;
-            align-items: center;
+            a.button{
+                font-size: 1.8em;
+            }
         }
 
         #screen{
            width: 100em;
         }
     }
-
-    
-
 
     #pages,
     #screen{
@@ -97,15 +93,11 @@ const {header} = Astro.props;
         margin: 1em;
     }
 
-    
-
     #pages{
        
         display: flex;
         overflow: hidden;
-
-
-        
+        align-items: center;
 
         transition: width .3s ease, font-size .3s ease;
 
@@ -113,12 +105,18 @@ const {header} = Astro.props;
             display: flex;
             justify-content: center;
             align-items: center;
+
+            margin: {
+                left: 1vw;
+                right: 1vw;
+            };
             
             color: white;
+            background-color: #384658;
             text-decoration: none;
             text-wrap:nowrap;
 
-            border-radius: 1em;
+            border-radius: .5em;
 
 
             height: 3em;
