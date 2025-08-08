@@ -1,0 +1,37 @@
+---
+import Page from "./Page.astro";
+
+const {frontmatter} = Astro.props;
+---
+
+<Page header={frontmatter.title}>
+    <div id="holder">
+        <div id="content">
+            <slot />
+        </div>
+    </div>
+    
+</Page>
+
+<style lang="text/scss">
+    #holder{
+        display: flex;
+        justify-content: center;
+        
+        #content{
+            width: 80%;
+            font-size: 1.3em;
+
+            a{
+                color: #D8B678;
+                text-decoration: none;
+                transition: color .1s ease;
+
+                &:hover{
+                    color: #ffd78e;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+</style>
