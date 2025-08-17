@@ -1,0 +1,93 @@
+---
+import Layout from "./Layout.astro";
+import OSLink from "../components/OsLink.astro";
+import Video from "../components/video.astro";
+const {frontmatter} = Astro.props;
+
+---
+
+<Layout Page={frontmatter.title}>
+    <div id="content">
+        <div id="modules">
+            <div id="left">
+                <h1>{frontmatter.title}</h1>
+                <Video />
+            </div>
+            <div id="right">
+                <slot />
+                <OSLink
+                    windows={frontmatter.win}
+                    mac={frontmatter.mac}
+                    linux={frontmatter.linux}
+                    text="<button>Download game</button>">
+                </OSLink>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style lang="scss">
+    @media screen and (max-width: 700px) {
+        #modules{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (min-width: 701px) {
+        #modules{
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+
+    #content{
+        display: flex;
+        justify-content: center;
+        
+        #modules{
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            #left{
+                margin-right: 1vw;
+            }
+            #right{
+                margin-left: 1vw;
+            }
+
+            a{
+                color: #aeb9ff;
+                text-decoration: underline;
+                transition: color .3s ease;
+
+                &:hover{
+                    color: #7e8fff;
+                }
+            }
+
+            #link{
+                a{
+                    background: #536983;
+                    border: .2em solid #405063;
+                    border-radius: .3em;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            
+            button{
+                background: none;
+                border: none;
+            }
+            
+            a.text{
+                color: green;
+            }      
+        }
+    }    
+</style>

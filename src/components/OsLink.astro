@@ -1,0 +1,95 @@
+---
+const { windows, mac, linux, text } = Astro.props;
+---
+
+<div id="link">
+  <a href="#" class="text"
+    data-windows={windows}
+    data-mac={mac}
+    data-linux={linux}
+    data-text={text}
+  >
+  </a>
+</div>
+
+
+<script>
+    function getOS(): string{
+      const userAgent = window.navigator.userAgent;
+
+      if (userAgent.indexOf("Win") !== -1){
+        return "Win";
+      }
+      else if (userAgent.indexOf("Mac") !== -1){
+        return "Mac";
+      }
+      else if (userAgent.indexOf("Linux") !== -1) {
+        return "Linux";
+      }
+
+      return "Fail";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const os: string = getOS(); 
+
+      const texts: HTMLCollectionOf<HTMLLinkElement> = document.getElementsByClassName("text") as HTMLCollectionOf<HTMLLinkElement>;
+
+      for(const t of texts){
+        const link = t.dataset;
+
+        const windowsHref = link.windows;
+        const macHref = link.mac;
+        const linuxHref = link.linux;
+        const text = link.text;
+        let href:any="#";
+        let osIcon:string=""
+
+        switch(os){
+          case("Win"):
+            href=windowsHref;
+            osIcon="fa-brands fa-windows"
+            break;
+          case("Mac"):
+            href=macHref;
+            osIcon="fa-brands fa-apple"
+            break;
+          case("Linux"):
+            href=linuxHref;
+            osIcon="fa-brands fa-linux"
+            break;
+        }
+
+        console.log(osIcon);
+        t.href=href;
+        t.innerHTML = `
+          <span>
+            <i class="${osIcon}"></i>
+          </span>
+          ${text}
+        `
+
+      
+      }
+    });
+
+</script>
+<!-- 
+<style lang="text/scss">
+  #text{
+    text-decoration: none;
+
+    button:hover{
+      cursor: pointer;
+    }
+  }
+
+  #link:hover{
+    cursor: pointer;
+  }
+
+  #id{
+    display: flex;
+    text-decoration: none;
+  }
+</style> -->
