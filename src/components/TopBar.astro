@@ -1,0 +1,116 @@
+---
+const {Page="Page"} = Astro.props;
+---
+<!-- #323F50 -->
+<div id="top-bar">
+    <div id="modules">
+        <div id="left-module">
+            {Page} <a href="/" aria-label="Home Button"><button><i class="fa-solid fa-house"></i></button></a>
+        </div>
+        <div id="right-module">
+            <a href="/" aria-label="Bluesky Button"><button id="bluesky" ><i class="fa-brands fa-bluesky"></i></button></a>
+            <a href="projects" aria-label="Linkedin Button"><button id="linkedin"><i class="fa-brands fa-linkedin"></i></button></a>
+            <a href="about-me" aria-label="Instagram Button"><button id="instagram"><i class="fa-brands fa-instagram"></i></button></a>
+            <a href="about-me" aria-label="Tumblr Button"><button id="tumblr"><i class="fa-brands fa-square-tumblr"></i></button></a>
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    $height: 10vh;
+
+    @media screen and (max-width: 2px) {
+        #right-module{
+            opacity: 0;
+        }
+    }
+
+    #top-bar{
+        
+        background: #232c37;
+        background: linear-gradient(0deg, #232c37  0%, #151a21  100%);
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+
+        #modules{
+            display: flex;
+            height: $height;
+            width: 90%;
+            justify-content: space-between;
+            align-items: center;
+
+            button{
+                width: 6w;
+                height: 2vh;
+                background: none;
+                border: none;
+                font-size: 1.5em;
+
+                margin: {
+                    left: .6vw;
+                    right: .6vw;
+                };
+            }
+
+            #left-module{
+                font-size: 1.5em;
+                display: flex;
+                align-items: center;
+                
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+
+                    button{
+                        font-size: 1em;
+                        height: 100%;
+
+                        &:hover{
+                            i{
+                                color: #aaaaaa;                        
+                            }
+                        }
+                    }
+                }
+                
+            }
+
+            #right-module{
+                transition: opacity .2s ease;
+                
+                *{
+                    transition: all .1s ease;
+                }           
+
+                #bluesky:hover{
+                    i{
+                        color: #1185FE;
+                    }
+                }
+
+                #linkedin:hover{
+                    i{
+                    color: #0A63BC;
+                    }
+                }
+
+                #instagram:hover{
+                    i{
+                        color: #FD0069;
+                    }
+                }
+
+                #tumblr:hover{
+                    i{
+                        color: #0077ff;
+                    }
+                }
+            }
+        }
+        
+
+    }
+</style>
