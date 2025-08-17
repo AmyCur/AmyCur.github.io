@@ -7,6 +7,8 @@ win: "https://github.com/AmyCur/MM_Proj/releases/download/v1.0.0/MetaMenaces_Win
 mac: "https://github.com/AmyCur/MM_Proj/releases/download/v1.0.0/MetaMenaces_Mac.zip"
 linux: "https://github.com/AmyCur/MM_Proj/releases/download/v1.0.0/MetaMenaces_Linux.zip"
 release: "https://github.com/AmyCur/MM_Proj/releases/"
+
+software: unreal
 ---
 ### Brief
 To create a 2.5D platformer

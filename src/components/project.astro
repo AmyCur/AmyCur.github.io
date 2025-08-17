@@ -33,9 +33,10 @@ a{
     align-items: center;
     
     border-radius: 1vw;
-    transition: background-size .2s ease;
+    transition: background-size .2s ease,scale .3s ease-in-out;
     background-color: rgba(0,0,0,0);
     background-blend-mode: multiply;
+    scale: 1;
     
     h1{
         display: flex;
@@ -51,14 +52,16 @@ a{
 
     &:hover{
         border: .13em solid #353a40;   
+        scale: 1.05;
 
         h1{
             color: #fff;
             background-color: rgba(0,0,0,.5);
             backdrop-filter: blur(2px);
+            
 
         }     
-        transition: background-color .1s ease;
+        transition: background-color .1s ease, scale .1s ease;
 
         
         // background-blend-mode: multiply;
