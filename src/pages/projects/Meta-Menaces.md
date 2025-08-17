@@ -1,7 +1,7 @@
 ---
 title: The Meta Menaces
 image: url(/pine-tree.jpg)
-layout: ../../Layouts/MDLayout.astro
+layout: ../../layouts/MDLayout.astro
 
 win: "https://github.com/AmyCur/MM_Proj/releases/download/v1.0.0/MetaMenaces_Windows.zip"
 mac: "https://github.com/AmyCur/MM_Proj/releases/download/v1.0.0/MetaMenaces_Mac.zip"
