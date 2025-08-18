@@ -5,8 +5,7 @@ import "../style/scss/404.scss"
 ---
 
 <ErrorPage Page="Error 404">
-    <h1>Error 404: <i>{(Astro.url.pathname).replace(/%20/g, " ").replace("/", "")}</i> Not Found</h1>
-    {Astro.url.pathname}
+    <h1>Error 404: Page Not Found</h1>
     <p>The page you're trying to access does not exist</p>
     <Button href="/">Go Home</Button>
 </ErrorPage>
