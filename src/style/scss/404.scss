@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+i{
+    text-decoration: underline;
+}
+
+button{
+    margin-top: 2vh;
+    font-size: 1.3em;
+    padding: .5em;
+    border-radius: .4em;
+    border: none;
+    background-color: #536983;
+    transition: color .1s ease, background-color .1s ease;
+    width: 100%;
+
+    &:hover{
+        cursor: pointer;
+		color: #ebebad;
+        background-color: #627d9c;
+    }
+}

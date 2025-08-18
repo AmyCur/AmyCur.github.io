@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Project from '../components/project.astro';
 import Button from '../components/Button.astro';
+import Brand from '../components/brand.astro';
 
 const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
 
@@ -23,6 +24,19 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 				{allPosts.map((post: any) => <Project Heading={post.frontmatter.title}, Image={post.frontmatter.image}, Link={post.url}/>)}
 			</div>
 		</div>		
+		<div id="worked-with">
+			<h1>Worked with</h1>
+			<div id="brands">
+				<Brand img="/tree2.avif">Iconika</Brand>
+				<Brand img="/tree2.avif">Other</Brand>
+				<Brand img="/tree2.avif">Otherr</Brand>
+			</div>
+			
+		</div>
+		<div id="about-me">
+			<h1>About Me</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in consequat odio. Aenean bibendum malesuada turpis, at dapibus lacus elementum sed Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in consequat odio. Aenean bibendum malesuada turpis, </p>
+		</div>
 	</div>
 	
 </Layout>
@@ -36,18 +50,11 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 		justify-content: center;
 
 		#projects{
+			margin-bottom: 3.5vh;
+			margin-top: 3.5vh;
 			width: 100%;
 			display: flex;
 			flex-wrap: wrap;
-			
-			// ul{
-			// 	display: flex;
-			// 	flex-direction: column;
-				
-			// 	*{
-			// 		margin-bottom: 2vh;
-			// 	}
-			// }
 		}
 	}
 
@@ -57,6 +64,7 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 		}
 
 		#projects{
+
 			#project{
 				h1{
 					font-size: 1em;
@@ -85,6 +93,28 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
+		#about-me{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 40%;
+			p{
+				font-size: 1.7em;
+			}
+		}
+
+		#worked-with{
+			text-align: center;
+
+			#brands{
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				text-align: center;
+			}
+		}
 		
 		#intro{
 			height: 80vh;

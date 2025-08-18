@@ -1,0 +1,31 @@
+---
+const {img, url="Brand Page Not Implemented"} = Astro.props;
+---
+
+<a class="brand" href={url}>
+    <img src="/tree2.avif" alt="">
+    <p><slot /></p>
+</div>
+
+<style lang="text/scss">
+    img{
+        height: 8em;
+        width: 8em;
+
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+
+    .brand{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: scale .1s ease;
+
+
+        &:hover{
+            scale: 1.05;
+            cursor: pointer;
+        }
+    }
+</style>
