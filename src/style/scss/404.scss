@@ -9,14 +9,25 @@ button{
     font-size: 1.3em;
     padding: .5em;
     border-radius: .4em;
+    // border: .1em solid #536983;
     border: none;
-    background-color: #536983;
-    transition: color .1s ease, background-color .1s ease;
+    border: solid 1px #89c4f4;
+    // background-color: 
+    
+    // background: 
+    //     linear-gradient(-45deg,#536983, transparent 90%),
+    //     linear-gradient(125deg,#6a87a8, transparent 40%);
+
+    background-color: #567090;
+
+    transition: all .1s ease;
     width: 100%;
 
     &:hover{
         cursor: pointer;
 		color: #ebebad;
-        background-color: #627d9c;
+        scale: 1.1;
+        background-color: #4c637e;
+        
     }
 }
