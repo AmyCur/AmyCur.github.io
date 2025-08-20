@@ -109,17 +109,6 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 		}
 	}
 
-	@media screen and (min-width: 969px) {
-		#intro{
-			font-size: 2.5em;
-		}
-	}
-
-	@media screen and (max-width: 970px) {
-		#intro{
-			font-size: 1em;
-		}
-	}
 
 
 	#home{
@@ -153,6 +142,7 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 		#intro{
 			min-height: 80vh;
 			width: 50%;
+			font-size: 2.5em;
 			// font-size: 0100px;
 			display: flex;
 			flex-direction: column;
