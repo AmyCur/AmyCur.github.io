@@ -6,7 +6,7 @@ const {
     Link="/"
 } = Astro.props;
 ---
-<div id="project" style=`background-image: ${Image}; height: ${Height}`>
+<div id="project" style=`background-image: ${Image}`>
     <a href={Link}>
         <h1>{Heading}</h1>
     </a>
@@ -15,6 +15,30 @@ const {
 <style lang="text/scss">
 a{
     text-decoration: none;
+}
+
+@media screen and (min-width: 584px) {
+    #project{
+        width: 15vw;
+        height: 15vw;
+
+        h1{
+            width: 15vw;
+            height: 15vw;
+        }
+    }
+}
+
+@media screen and (max-width: 583px) {
+    #project{
+        width: 12em ;
+        height: 12em;
+
+        h1{
+            width: 12em;
+            height: 12em;
+        }
+    }
 }
 
 #project{
@@ -26,7 +50,6 @@ a{
     background-size: cover;
 
     border: .13em solid #3D444D;   
-    width: 15vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,8 +66,7 @@ a{
         align-items: center;
         transition: color .2s ease;
         color: #ffffff00;
-        width: 15vw;
-        height: 15vw;
+        
         text-align: center;
         transition: all .3s ease;
     }
