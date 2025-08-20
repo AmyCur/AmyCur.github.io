@@ -46,10 +46,7 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 	@media screen and (min-width: 585px) {
 		#projects{
 			flex-direction: row;
-		}
-
-		
-		
+		}	
 	}
 
 	@media screen and (max-width: 584px) {
@@ -104,29 +101,26 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 			justify-content: space-around;
 
 			button{
-				width: 80%;
-				height: 8vh;
+				width: 90%;
+				height: max(8vh, 40px);
 				margin-bottom: 0.5em;
 				margin-top: 0.5em;
 			}	
 		}
-		
-
-		// #buttons{
-		// 	display: flex;
-		// 	justify-content: space-between;
-		// 	align-items: center;
-		// 	button{
-		// 		font-size: .3em;
-		// 		width: 80%;
-		// 	}
-
-		// }
 	}
 
-	@media screen and (min-width: 736px) {
-		font-size: .8em;
+	@media screen and (min-width: 969px) {
+		#intro{
+			font-size: 2.5em;
+		}
 	}
+
+	@media screen and (max-width: 970px) {
+		#intro{
+			font-size: 1em;
+		}
+	}
+
 
 	#home{
 		display: flex;
@@ -157,9 +151,9 @@ const allPosts = Object.values(import.meta.glob('./projects/*.md', { eager: true
 		}
 		
 		#intro{
-			height: 80vh;
+			min-height: 80vh;
 			width: 50%;
-			font-size: 2.5em;
+			// font-size: 0100px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
