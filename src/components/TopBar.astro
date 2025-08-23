@@ -17,6 +17,8 @@ const {Page="Page"} = Astro.props;
 </div>
 
 <style lang="scss">
+    // This has a go at me but it works so idk what they want me to do
+    @use "../style/scss/consts/consts";
     $height: 10vh;
 
     @media screen and (max-width: 315px) {
@@ -25,10 +27,14 @@ const {Page="Page"} = Astro.props;
         }
     }
 
+    i{
+		color: consts.$Text;
+    }
+
     #top-bar{
         
-        background: #232c37;
-        background: linear-gradient(0deg, #232c37  0%, #151a21  100%);
+        background: consts.$background-colour;
+        background: linear-gradient(0deg, consts.$background-colour  0%, #161723  100%);
         width: 100vw;
         display: flex;
         justify-content: center;

@@ -21,17 +21,18 @@ const {Page="Page"} = Astro.props;
 	
 </html>
 
-<style is:global>
+<style lang="scss">
+	@use "../style/scss/consts/consts";
 	@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
 
 	*{
-		color: #f2f2d1;
+		color: consts.$Text;
 		font-family: "TikTok Sans", sans-serif;
 		text-decoration: none;
 	}
 
 	html{
-		background-color: #232c37;
+		background-color: consts.$background-colour;
 	}
 
 	li{
@@ -40,6 +41,9 @@ const {Page="Page"} = Astro.props;
 
 	a{
 		text-decoration: none;
+	}
+
+	button{
 	}
 
 	iframe{

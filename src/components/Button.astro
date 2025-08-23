@@ -6,21 +6,22 @@ const {href, onClick} = Astro.props;
     <button onclick={onClick}><slot /></button>
 </a>
 
-<style lang="text/scss">
+<style lang="scss">
+    @use "../style/scss/consts/consts";
+
     button{
         border-radius: .4em;
-        border: solid 1px #89c4f4;
-
-        background-color: #567090;
-
+        border: solid 1px consts.$Blue;
+        background-color: consts.$Lavender;
         transition: all .1s ease;
+        color: consts.$Crust;
 
 
         &:hover{
             cursor: pointer;
-            color: #ebebad;
+            color: consts.$Mantle;
             scale: 1.1;
-            background-color: #4c637e;
+            background-color: consts.$Light-Lavender;
             
         }
     }
