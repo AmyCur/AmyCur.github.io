@@ -1,0 +1,58 @@
+---
+import TopBar from "../components/TopBar.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <TopBar title="Error 404" />
+    <div class="middle">
+        <div id="emoticon">
+            (*⁠・⁠～⁠・⁠*)
+        </div>
+        <div id="text">
+            <p>Whoops, This page doest exist!</p>
+            <a href="/">Go Home</a>
+        </div>
+
+    </div>
+</Layout>
+
+<style lang="scss">
+    @use "../scss/consts";
+
+    .middle{
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+        #emoticon{
+            font-size: 8em;
+        }
+
+        #text{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 12vh;
+            font-size: 2em;
+
+            a{
+                background-color: #32302f;
+                font-size: .77em;
+                width: fit-content;
+                padding: .6em;
+                border-radius: .4em;
+                transition: background-color .18s ease;
+
+                &:hover{
+                    background-color: #585452;
+                }
+            }
+        }
+    }
+</style>

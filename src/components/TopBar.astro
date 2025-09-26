@@ -1,0 +1,47 @@
+---
+const {title="Insert Title Here"} = Astro.props;
+---
+
+<div id="bar">
+    <div class="left"><h1>{title}</h1></div>
+    <div class="right">
+        <div id="socials">
+            <a href=""><i class="fa-brands fa-bluesky" /></a>
+            <a href=""><i class="fa-brands fa-linkedin" /></a>
+            <a href=""><i class="fa-brands fa-instagram" /></a>
+            <a href=""><i class="fa-brands fa-square-tumblr" /></a>
+        </div>
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/e4b9b41e06.js" crossorigin="anonymous"></script>
+
+<style lang="scss">
+    @use "../scss/consts";
+    $top-bar-color: #3c3836;
+
+    #bar {
+        background-color: $top-bar-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5em;
+
+        .left{margin-left: 3em;}
+        .right{margin-right: 3em; display: flex; justify-content: space-between;}
+
+        #socials{
+            width: 10vw;
+            display: flex;
+            justify-content: space-between;
+            
+            a{
+                transition: color .2s ease;
+                font-size: 2em;
+                &:hover{
+                    color: #9e9378;
+                }
+            }
+        }
+    }
+</style>
