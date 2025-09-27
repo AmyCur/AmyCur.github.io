@@ -1,0 +1,225 @@
+---
+import ResizableVideo from "../components/ResizableVideo.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About Me">
+    <div id="intro-holder">
+        <h1>About Me</h1>
+        <div id="intro">
+            Blah blah blah young age i love video game and all that blah blah
+            blah same thing empolyers have heard a million times blah blah blah
+            heres my cute timeline omg shes so small and cute when she made that
+            game
+        </div>
+    </div>
+
+    <div id="videos">
+        <div class="left">
+            <ResizableVideo
+                url="https://scratch.mit.edu/projects/1222245001/embed"
+            />
+            <div class="description">
+                <div class="description-body">
+                    <h1>
+                        <a href="https://scratch.mit.edu/projects/1222245001/"
+                            >;87TMKG; YFU</a
+                        >
+                    </h1>
+                    <p>
+                        <b>;87TMKG; YFU</b> is the oldest game of mine that is not
+                        lost to time. It was developed in Scratch 2 on the 30th of
+                        September 2016, when i was age 8 and in year 4.
+                    </p>
+                    <p>
+                        The <em>unique</em> name of this game was most likely created
+                        by swiping my hand across a keyboard.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <ResizableVideo
+                url="https://scratch.mit.edu/projects/1222241709/embed"
+            />
+            <div class="description">
+                <div class="description-body">
+                    <h1>
+                        <a href="https://scratch.mit.edu/projects/1222241709/"
+                            >PPAP 2</a
+                        >
+                    </h1>
+                    <p>
+                        <b>PPAP 2</b> was the first game in which i created a coherent
+                        gameplay loop that rewarded players for playing well
+                    </p>
+                    <p>
+                        You are able to shoot apples and pineapples with a pen
+                        inorder to gain money, which you can then use in the
+                        shop to buy new pens
+                    </p>
+                    <p>
+                        This game was created around the time the <a
+                            href="https://www.youtube.com/watch?v=Ct6BUPvE2sM"
+                            >Pen Pinapple Apple Pen video</a
+                        > was going viral, and released on the 20th of January 2017,
+                        when i was age 9 and in year 4
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="image"></div>
+            <div class="description">
+                <div class="description-body">
+                    <h1>Twine Projects</h1>
+                    <p>
+                        I spent most of 2018 making various fighting fantasy
+                        inspired twine games.
+                    </p>
+                    <p>
+                        A large amount of these games were devloped while i
+                        attented the <b>"Coder Dojo"</b> in the
+                        <a href="https://ecclescongchurch.wordpress.com/"
+                            >Eccles Congregational Church</a
+                        >, an event on weekends where i would learn how to
+                        program in <b>scratch, python and twine</b>
+                    </p>
+                    <p>
+                        In the modern day, i no longer have access to any of
+                        these games and they have all unfortunately been lost to
+                        time
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <ResizableVideo
+                url="https://scratch.mit.edu/projects/1222241709/embed"
+            />
+            <div class="description">
+                <div class="description-body">
+                    <h1>
+                        <a href="https://scratch.mit.edu/projects/1222241709/"
+                            >Unity Projects</a
+                        >
+                    </h1>
+                    <p>
+                        I first used the Unity Game Engine in september of 2019
+                        aged 11 and in year 7, shortly after beginning highschool at Ellesmere Park Highschool.
+                    </p>
+                    <p>
+                        This game was created around the time the <a
+                            href="https://www.youtube.com/watch?v=Ct6BUPvE2sM"
+                            >Pen Pinapple Apple Pen video</a
+                        > was going viral, and released on the 20th of January 2017,
+                        when i was age 9 and in year 4
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="image"></div>
+            <div class="description">
+                <div class="description-body">
+                    <h1>Year 10 and 11 Games Design</h1>
+                    <p>
+                        In year 10, I left Ellesmere Park Highschool and moved to the UTC@MediacityUK technical college in order to study <b>Games Design, Computer science and Digital Information Technology</b>
+                    </p>
+                    <p>
+                        A large amount of these games were devloped while i
+                        attented the <b>"Coder Dojo"</b> in the
+                        <a href="https://ecclescongchurch.wordpress.com/"
+                            >Eccles Congregational Church</a
+                        >, an event on weekends where i would learn how to
+                        program in <b>scratch, python and twine</b>
+                    </p>
+                    <p>
+                        In the modern day, i no longer have access to any of
+                        these games and they have all unfortunately been lost to
+                        time
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style lang="text/scss">
+    @use "../scss/consts";
+    #intro-holder{
+        margin-top: 5em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        #intro{ 
+            margin-top: 3em;
+            width: 50%;
+            font-size: 1.6em;
+        }
+    }
+
+    #videos{
+        height: fit-content;
+        &>div{
+            margin-top: 10em;
+            margin-bottom: 30em;
+            margin-left: 1em;
+            margin-right: 1em;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .description-body{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            img{
+                width: 1em;
+                height: 1em;
+            }
+
+            image{
+                width: 10em;
+                height: 10em;
+            }
+        }
+        
+        .description{
+            max-width: 20em;
+            a{
+                text-decoration: none;
+                color: #EBDBB2;
+            }
+            p{
+                font-size: 1.2em;
+            }
+            
+            
+        }
+
+        .image{
+            width: 1em;
+            height: 1em;
+        }
+
+        iframe{
+            border-radius: .5em;
+            border: none;
+        }
+        .left{
+            display: flex;
+            flex-direction: row;
+        }
+        .right{
+            display: flex;
+            flex-direction: row-reverse;
+        }
+       
+    }
+</style>

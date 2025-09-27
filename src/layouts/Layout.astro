@@ -1,3 +1,9 @@
+---
+import TopBar from "../components/TopBar.astro";
+const {title="", frontmatter} = Astro.props;
+
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,9 +11,11 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
+		<!-- This has the added feature of, if the title is not set, having the title as "true" -->
+		<TopBar title={(title !== "") ? title : frontmatter.title}/>
 		<slot />
 	</body>
 </html>
@@ -22,3 +30,4 @@
 		background-color: consts.$background-color;
 	}
 </style>
+

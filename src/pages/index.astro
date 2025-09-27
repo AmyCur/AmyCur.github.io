@@ -1,22 +1,23 @@
 ---
 import TopBar from "../components/TopBar.astro";
 import Layout from "../layouts/Layout.astro";
+import Project from "../components/Project.astro";
+
+const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: true }));
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<TopBar title="Home" />
-
+<Layout title="Home">
 	<div id="content">
-		<div id="row">
-		<fieldset class="left">
-			<legend>random ahh box</legend>
-			<p>hiii</p>
-		</fieldset>
+		<div id="intro">
+			<h1>This is my intro heading</h1>
+			<p>This is my intro paragraph. This is my intro paragraph. This is my intro paragraph. This is my intro paragraph.</p>
 		</div>
-		
+		<div id="projects">
+				{projects.map((project: any) => <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}/>)}
+		</div>
 	</div>
 </Layout>
 
@@ -24,14 +25,12 @@ import Layout from "../layouts/Layout.astro";
 	@use "../scss/consts";
 	#content {
 		display: flex;
-		justify-content: center;
-		fieldset {
-			border-radius:.5em;
-			border: solid 0.15em consts.$foreground;
-			width: 88%;
-			legend {
-				font-size: 1.3em;
-			}
+		align-items: center;
+		flex-direction: column;
+
+		#intro{
+			margin-top: 8em;
+			width: 24em;
 		}
 	}
 </style>
