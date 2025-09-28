@@ -9,15 +9,27 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="Home">
+<Layout>
 	<div id="content">
 		<div id="intro">
-			<h1>This is my intro heading</h1>
-			<p>This is my intro paragraph. This is my intro paragraph. This is my intro paragraph. This is my intro paragraph.</p>
+			<div class="left">
+				<h1>This is my intro heading</h1>
+				<p>This is my intro paragraph. This is my intro paragraph. This is my intro paragraph. This is my intro paragraph.</p>
+				<a onclick='document.getElementById("projects").scrollIntoView({behavior: "smooth"})' class="button">View Projects</a>
+			</div>
+			<div class="aboutme">
+				<h1>About Me</h1>
+				<p>Click here to see a timeline of my games design career from age 7 all the way to age 18</p>
+				<a href="AboutMe" class="button">About Me</a>
+			</div>
+			
 		</div>
-		<div id="projects">
-				{projects.map((project: any) => <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}/>)}
+		<div id="project-holder">
+			<div id="projects">
+					{projects.map((project: any) => <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/>)}
+			</div>
 		</div>
+		
 	</div>
 </Layout>
 
@@ -29,8 +41,45 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 		flex-direction: column;
 
 		#intro{
+			width: 80%;
 			margin-top: 8em;
-			width: 24em;
+			display: flex;
+			justify-content: space-around;
+
+			a{
+				font-size: 1.3em;
+				&:hover{
+					cursor: pointer;
+				}
+			}
+
+			.left,.aboutme{
+				width: 24em;
+			}
+
+			&>div{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;				
+			}
 		}
+
+		#project-holder{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			#projects{
+				margin-top: 100em;
+				margin-bottom: 100em;
+				display: flex;
+				flex-wrap: wrap;
+				&>a{
+					margin-left: 1em;
+					margin-right: 1em;
+				}
+			}
+		}
+		
 	}
 </style>

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+$background-color: light-dark(#a89984, #282828);
+$foreground: light-dark(#ebdbb2,#ebdbb2);
+
+
+$dark0-hard: light-dark(#1d2021, #f9f5d7);
+$dark0: light-dark(#282828, #fbf1c7);
+$dark0_soft: light-dark(#32302f, #f2e5bc);
+$dark1: light-dark(#3c3836, #ebdbb2);
+$dark2: light-dark(#504945, #d5c4a1);
+$dark3: light-dark(#665c54, #bdae93);
+$dark4: light-dark(#7c6f64, #a89984);
+
+$bright_red     : light-dark(#fb4934, #fb4934);  
+$bright_green   : light-dark(#b8bb26, #b8bb26);     
+$bright_yellow  : light-dark(#fabd2f, #fabd2f);     
+$bright_blue    : light-dark(#83a598, #83a598);     
+$bright_purple  : light-dark(#d3869b, #d3869b);     
+$bright_aqua    : light-dark(#8ec07c, #8ec07c);     
+$bright_orange  : light-dark(#fe8019, #fe8019);     
+$neutral_red    : light-dark(#cc241d, #cc241d);     
+$neutral_green  : light-dark(#98971a, #98971a);     
+$neutral_yellow : light-dark(#d79921, #d79921);     
+$neutral_blue   : light-dark(#458588, #458588);      
+$neutral_purple : light-dark(#b16286, #b16286);     
+$neutral_aqua   : light-dark(#689d6a, #689d6a);      
+$neutral_orange : light-dark(#d65d0e, #d65d0e);     
+$faded_red      : light-dark(#9d0006, #9d0006); 
+$faded_green    : light-dark(#79740e, #79740e);
+$faded_yellow   : light-dark(#b57614, #b57614);
+$faded_blue     : light-dark(#076678, #076678); 
+$faded_purple   : light-dark(#8f3f71, #8f3f71); 
+$faded_aqua     : light-dark(#427b58, #427b58); 
+$faded_orange   : light-dark(#af3a03, #af3a03);
+
+:root{
+    color-scheme: light dark;
+    font-family: "DM Sans", sans-serif;
+    color: $foreground;
+}
+
+a{
+    text-decoration: none;
+    color: $foreground;
+}
+
+.button, .link-button{
+  
+    background-color: #32302f;
+    font-size: .77em;
+    width: fit-content;
+    padding: .6em;
+    border-radius: .4em;
+    transition: background-color .18s ease;
+
+    &:hover{
+        background-color: #585452;
+    }
+
+}

@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-
 $Rosewater: light-dark(#dc8a78, #f4dbd6);
 $Flamingo: light-dark(#dd7878, #f0c6c6);
 $Pink: light-dark(#ea76cb, #f5bde6);
@@ -30,7 +27,7 @@ $Mantle: light-dark(#e6e9ef, #1e2030);
 $Crust: light-dark(#dce0e8, #181926);
 
 $background-colour: $Base;
-$Top-Bar: light-dark(#b8beff,#1e2030);
+$Top-Bar: light-dark(#b8beff,#161723);
 
 :root{
     color-scheme: light dark;
@@ -39,15 +36,13 @@ $Top-Bar: light-dark(#b8beff,#1e2030);
 }
 
 a{
-    &:link{text-decoration: none;}
     text-decoration: none;
-    color: $Sapphire;
-    &:visited{color: $Lavender;}
+    color: $Text;
 }
 
 .button, .link-button{
-    font-family: "IBM Plex Sans", sans-serif;
-    background-color: $Surface1;
+  
+    background-color: #32302f;
     font-size: .77em;
     width: fit-content;
     padding: .6em;
@@ -55,7 +50,7 @@ a{
     transition: background-color .18s ease;
 
     &:hover{
-        background-color: $Surface2;
+        background-color: #585452;
     }
 
 }

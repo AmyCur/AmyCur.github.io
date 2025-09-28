@@ -1,8 +1,64 @@
 ---
-const {title="Default Title", image, url} = Astro.props;
+const {
+    title = "Default Title",
+    image = "url(/stupid.png)",
+    description = "",
+    url,
+} = Astro.props;
 ---
 
+<a href={url}>
+    <div class="project" style=`background-image: ${image}`>
+        <div id="text">
+            <p id="title">{title}</p>
+            <p id="description">{description}</p>
+        </div>
+    </div>
+</a>
+<style lang="scss">
+    @use "../scss/consts";
+    $size: 15em;
+    $fade-time: .2s;
 
-<div class="project">
-    <a href={url}>hi</a>
-</div>
+    a {
+        text-decoration: none;
+    }
+
+    .project {
+        width: $size;
+        height: $size;
+        margin: 1em;
+
+        background-size: cover;
+        border: 0.1em solid white;
+        overflow: hidden;
+        background-blend-mode: multiply;
+
+        transition: background $fade-time ease;
+        border-radius: 1em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        #text{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 90%;
+            height: 90%;
+
+            transition: color $fade-time ease;
+            color: #ffffff00;
+        }        
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.37);
+
+            #text{
+                color: consts.$Text;
+            }
+        }
+    }
+</style>

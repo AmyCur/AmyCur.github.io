@@ -2,10 +2,10 @@
 import Layout from "./Layout.astro";
 import Video from "../components/Video.astro";
 import OSLink from "../components/OSLink.astro";
-const {title, frontmatter} = Astro.props;
+const {frontmatter} = Astro.props;
 ---
 
-<Layout frontmatter={frontmatter}>
+<Layout title={frontmatter.title}>
     <div id="main">
         <div id="content">
             <div id="left">
