@@ -8,47 +8,71 @@ const {
 ---
 
 <a href={url}>
-    <div class="project" style=`background-image: ${image}`>
-        <div id="text">
-            <p id="title">{title}</p>
-            <p id="description">{description}</p>
+    <div class="background" style=`background-image: ${image}`>
+        <div class="project">
+            <div id="text">
+                <p id="title">{title}</p>
+                <p id="description">{description}</p>
+            </div>
         </div>
     </div>
 </a>
 <style lang="scss">
     @use "../scss/consts";
-    $width: 15em;
-    $height: 40em;
+    $width: 17em;
+    $height: $width;
     $fade-time: 0.2s;
 
     a {
         text-decoration: none;
     }
 
-    .project {
+    .background {
         height: $height;
         width: $width;
+
+        border-radius: 1em;
+
         background-repeat: no-repeat;
         background-size: cover;
         transition: all 0.3s ease;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
+        background-blend-mode: multiply;
+
+       
+        margin: .5em;
+
+        .project {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1em;
+            
+        }
+
         #text {
-            transition: color .3s ease-in;
+            transition: color 0.3s ease-in;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             color: #00000000;
-            font-size: 2em;
+            font-size: 1.3em;
+            width: 80%;
+            height: 80%;
         }
 
         &:hover {
-            width: $width * 3;
-            background-color: rgba(0,0,0,0.7);
-            background-blend-mode: multiply;
-
-            #text{
+            scale: 1.2;
+            background-color: rgba(0, 0, 0, 0.7);
+            
+            .project{
+                backdrop-filter: blur(.15em);
+            }
+            #text {
                 color: consts.$Text;
             }
         }

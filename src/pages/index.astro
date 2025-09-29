@@ -69,13 +69,17 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			width: 80%;
 
 			#projects{
-				margin-top: 100em;
+				margin-top: 40em;
 				margin-bottom: 100em;
+				width: 100vw;
 				display: flex;
-				justify-content: center;
 				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
+
 				&>a{
 					margin-left: 1em;
 					margin-right: 1em;
