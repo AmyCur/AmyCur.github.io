@@ -10,6 +10,7 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 ---
 
 <Layout>
+	<script src="../ts/project-blurer.js" />
 	<div id="content">
 		<div id="intro">
 			<div class="left">
@@ -26,7 +27,7 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 		</div>
 		<div id="project-holder">
 			<div id="projects">
-					{projects.map((project: any) => <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/>)}
+				{projects.map((project: any) => <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/>)}
 			</div>
 		</div>
 		
@@ -73,6 +74,7 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 				margin-top: 100em;
 				margin-bottom: 100em;
 				display: flex;
+				justify-content: center;
 				flex-wrap: wrap;
 				&>a{
 					margin-left: 1em;

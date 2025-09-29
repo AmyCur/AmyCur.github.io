@@ -1,7 +1,7 @@
 ---
 const {
     title = "Default Title",
-    image = "url(/stupid.png)",
+    image = "url(/images.jpg)",
     description = "",
     url,
 } = Astro.props;
@@ -17,44 +17,36 @@ const {
 </a>
 <style lang="scss">
     @use "../scss/consts";
-    $size: 15em;
-    $fade-time: .2s;
+    $width: 15em;
+    $height: 40em;
+    $fade-time: 0.2s;
 
     a {
         text-decoration: none;
     }
 
     .project {
-        width: $size;
-        height: $size;
-        margin: 1em;
-
+        height: $height;
+        width: $width;
+        background-repeat: no-repeat;
         background-size: cover;
-        border: 0.1em solid white;
-        overflow: hidden;
-        background-blend-mode: multiply;
-
-        transition: background $fade-time ease;
-        border-radius: 1em;
-
+        transition: all 0.3s ease;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         
-        #text{
+        #text {
+            transition: color .3s ease-in;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 90%;
-            height: 90%;
-
-            transition: color $fade-time ease;
-            color: #ffffff00;
-        }        
+            color: #00000000;
+            font-size: 2em;
+        }
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.37);
+            width: $width * 3;
+            background-color: rgba(0,0,0,0.7);
+            background-blend-mode: multiply;
 
             #text{
                 color: consts.$Text;
