@@ -5,12 +5,14 @@ import Project from "../components/Project.astro";
 
 const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: true }));
 
+
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<script src="../ts/project-blurer.js" />
+	<script src="../ts/project-hover-colour.ts" />
 	<div id="content">
 		<div id="intro">
 			<div class="left">
@@ -27,7 +29,24 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 		</div>
 		<div id="project-holder">
 			<div id="projects">
-				{projects.map((project: any) => <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/>)}
+				<div id="unity">
+					<h1>Unity</h1>
+					<div class="cards">
+						{projects.map((project: any) => project.frontmatter.software == "unity" ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
+					</div>
+				</div>
+				<div id="unreal">
+					<h1>Unreal</h1>
+					<div class="cards">
+						{projects.map((project: any) => project.frontmatter.software == "unreal" ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
+					</div>
+				</div>
+				<h1>Blender</h1>
+				<div id="blender">
+					<div class="cards">
+						{projects.map((project: any) => project.frontmatter.software == "blender" ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
+					</div>
+				</div>
 			</div>
 		</div>
 		
@@ -76,9 +95,53 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 				margin-bottom: 100em;
 				width: 100vw;
 				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
-				justify-content: space-between;
+				flex-direction: column;
+
+				#unity,#unreal,#blender{
+					transition: all .3s ease;
+					margin-bottom: 5em;
+					padding: 1.5em;
+					border-radius: .5em;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					align-items: baseline;
+					
+					
+					
+
+					h1{
+
+						font-size: 2.5em;
+
+						margin: {
+							top: 0em;
+							right: 0em;
+							left: 0em;
+							bottom: .25em;
+						};
+						
+						padding: {
+							top: .5em;
+							bottom: .5em;
+						};
+
+					}
+				}
+
+				#unity{
+					background-color: consts.$Backdrop1;					
+				}
+
+				.cards{
+					display: flex;
+					align-items: center;
+
+					
+
+				}
+
+				
 
 				&>a{
 					margin-left: 1em;
