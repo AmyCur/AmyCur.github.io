@@ -7,7 +7,7 @@ const {
 } = Astro.props;
 ---
 
-<a href={url}>
+<a href={url} draggable="false">
     <div class="background" style=`background-image: ${image}`>
         <div class="project">
             <div id="text">
@@ -21,22 +21,45 @@ const {
     @use "../scss/consts";
     $width: 17em;
     $height: 17em;
-    $fade-time: 0.2s;
+    $fade-time: 0.3s;
 
     a {
         text-decoration: none;
     }
 
+    
+
     .background {
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: background $fade-time ease;
+
+        border: .125em solid white;
+
 
         margin: {
-            right: 2em;
         };
+
+        @media (orientation: portrait){
+            &{
+                margin-bottom: 2em;
+                margin-right: 0px;
+                text-align: center;
+            }
+        }
+
+        @media (orientation: landscape){
+            &{
+                margin-bottom: 2em;
+                margin-right: 2em;
+                
+                text-align: center;
+            }
+        }
         
         &,
         .project {
@@ -52,10 +75,25 @@ const {
             justify-content: center;
             align-items: center;
             text-align: center;
-            width: 70%;
+            transition: all $fade-time ease;
+
+            #text{
+                transition: color $fade-time ease;
+                width: 70%;
+                color: #00000000;
+            }
         }
 
-        $p: &;
+        &:hover{
+            .project{
+                backdrop-filter: blur(.3em);
+                #text{
+                    color: consts.$Text;
+                }
+            }
+        }
+
+        
         
     }
 </style>

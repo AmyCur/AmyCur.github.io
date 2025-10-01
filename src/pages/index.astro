@@ -11,19 +11,19 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout title="Home">
 	<script src="../ts/project-hover-colour.ts" />
+	<script src="../ts/header-remover.ts" />
 	<div id="content">
 		<div id="intro">
 			<div class="left">
-				<h1>This is my intro heading</h1>
-				<p>This is my intro paragraph. This is my intro paragraph. This is my intro paragraph. This is my intro paragraph.</p>
+				<h1>Hi! 👋</h1>
+				<p>My names Dylan <span>(she/her)</span>, im an aspiring games developer from England who is currently Studying a Level 3 BTEC in Games Design</p>
 				<a onclick='document.getElementById("projects").scrollIntoView({behavior: "smooth"})' class="button">View Projects</a>
 			</div>
 			<div class="aboutme">
 				<h1>About Me</h1>
-				<p>Click here to see a timeline of my games design career from age 7 all the way to age 18</p>
-				<a href="AboutMe" class="button">About Me</a>
+				<p>[Inser About Me here]</p>
 			</div>
 			
 		</div>
@@ -41,8 +41,8 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 						{projects.map((project: any) => project.frontmatter.software == "unreal" ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
 					</div>
 				</div>
-				<h1>Blender</h1>
 				<div id="blender">
+					<h1>Blender</h1>
 					<div class="cards">
 						{projects.map((project: any) => project.frontmatter.software == "blender" ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
 					</div>
@@ -55,16 +55,19 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 
 <style lang="scss">
 	@use "../scss/consts";
+	@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@100..800&display=swap');
 	#content {
+		height: 190vh;
 		display: flex;
+		justify-content: space-evenly;
 		align-items: center;
 		flex-direction: column;
 
 		#intro{
 			width: 80%;
-			margin-top: 8em;
 			display: flex;
 			justify-content: space-around;
+			align-items: center;
 
 			a{
 				font-size: 1.3em;
@@ -88,30 +91,37 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
 			width: 80%;
 
 			#projects{
-				margin-top: 40em;
-				margin-bottom: 100em;
 				width: 100vw;
 				display: flex;
 				flex-direction: column;
+				font-family: "Sora", sans-serif;
+
 
 				#unity,#unreal,#blender{
 					transition: all .3s ease;
 					margin-bottom: 5em;
 					padding: 1.5em;
 					border-radius: .5em;
+					
 					display: flex;
 					flex-direction: column;
 					justify-content: space-between;
 					align-items: baseline;
-					
-					
-					
 
+					@media (orientation: portrait){
+						&{
+							justify-content: center;
+							align-items: center;
+						}
+					}
+					
+					background-color: consts.$Backdrop1;					
+					
 					h1{
-
 						font-size: 2.5em;
 
 						margin: {
@@ -129,16 +139,24 @@ const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: tru
 					}
 				}
 
-				#unity{
-					background-color: consts.$Backdrop1;					
+				@media (orientation: portrait){
+					.cards{
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+					}
+				}
+
+				@media (orientation: landscape){
+					.cards{
+						flex-direction: row;
+						justify-content: center;
+						align-items: center;
+					}
 				}
 
 				.cards{
 					display: flex;
-					align-items: center;
-
-					
-
 				}
 
 				
