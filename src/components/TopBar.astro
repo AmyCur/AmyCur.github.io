@@ -1,72 +1,19 @@
 ---
-const { title = "a" } = Astro.props;
+const {title} = Astro.props;
+
+import "../style/TopBar.scss";
 ---
 
-<div id="bar">
-    <div class="left">
-        <div class="content">
+<div id="topbar">
+    <div id="bar">
+        <div id="left">
             <h1>{title}</h1>
-            <a href="/"><i class="fa-solid fa-house"></i></a>
         </div>
-    </div>
-
-    <div class="right">
-        <div id="socials">
-            <a href=""><i class="fa-brands fa-bluesky"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-square-tumblr"></i></a>
+        <div id="right">
+            <a href="/">Home</a>
+            <a href="/MyProjects">Projects</a>
+            <a href="/AboutMe">About Me</a>
         </div>
     </div>
 </div>
 
-<script src="https://kit.fontawesome.com/e4b9b41e06.js" crossorigin="anonymous"
-></script>
-
-<style lang="scss">
-    @use "../scss/consts";
-
-
-    #bar {
-        background-color: consts.$Top-Bar;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 5em;
-
-        a {
-            transition: color 0.2s ease;
-            &:hover {
-                color: consts.$Lavender;
-            }
-        }
-
-        .left {
-            margin-left: 3em;
-            .content {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 105%;
-            }
-            i {
-                height: fit-content;
-                font-size: 1.4em;
-            }
-        }
-        .right {
-            margin-right: 3em;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        #socials {
-            width: 10vw;
-            display: flex;
-            justify-content: space-between;
-            a {
-                font-size: 2em;
-            }
-        }
-    }
-</style>

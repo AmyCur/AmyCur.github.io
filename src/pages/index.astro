@@ -1,173 +1,22 @@
 ---
-import TopBar from "../components/TopBar.astro";
 import Layout from "../layouts/Layout.astro";
-import Project from "../components/Project.astro";
-
-const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: true }));
-
-
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title="Home">
-	<script src="../ts/project-hover-colour.ts" />
-	<script src="../ts/header-remover.ts" />
-	<div id="content">
-		<div id="intro">
-			<div class="left">
-				<h1>Hi! 👋</h1>
-				<p>My names Dylan <span>(she/her)</span>, im an aspiring games developer from England who is currently Studying a Level 3 BTEC in Games Design</p>
-				<a onclick='document.getElementById("projects").scrollIntoView({behavior: "smooth"})' class="button">View Projects</a>
-			</div>
-			<div class="aboutme">
-				<h1>About Me</h1>
-				<p>[Inser About Me here]</p>
-			</div>
-			
-		</div>
-		<div id="project-holder">
-			<div id="projects">
-				<div id="unity">
-					<h1>Unity</h1>
-					<div class="cards">
-						{projects.map((project: any) => project.frontmatter.software == "unity" ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
-					</div>
-				</div>
-				<div id="unreal">
-					<h1>Unreal</h1>
-					<div class="cards">
-						{projects.map((project: any) => project.frontmatter.software == "unreal" ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
-					</div>
-				</div>
-				<div id="blender">
-					<h1>Blender</h1>
-					<div class="cards">
-						{projects.map((project: any) => project.frontmatter.software == "blender" ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	</div>
+    <div id="intro">
+        <h1>Hi 👋</h1>
+        <p>
+            My names Dylan, [Insert rester here lorem lorem lorem lorem
+            lorem lorem lorem ]
+        </p>
+    </div>
 </Layout>
 
 <style lang="scss">
-	@use "../scss/consts";
-	@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@100..800&display=swap');
-	#content {
-		height: 190vh;
-		width: 100vw;
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-		flex-direction: column;
-
-		#intro{
-			width: 80%;
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
-
-			a{
-				font-size: 1.3em;
-				&:hover{
-					cursor: pointer;
-				}
-			}
-
-			.left,.aboutme{
-				width: 24em;
-			}
-
-			&>div{
-				display: flex;
-				flex-direction: column;
-				justify-content: space-around;				
-			}
-		}
-
-		#project-holder{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			width: 80%;
-
-			#projects{
-				width: 100vw;
-				display: flex;
-				flex-direction: column;
-				font-family: "Sora", sans-serif;
-
-
-				#unity,#unreal,#blender{
-					transition: all .3s ease;
-					margin-bottom: 5em;
-					padding: 1.5em;
-					border-radius: .5em;
-					
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-					align-items: baseline;
-
-					@media (orientation: portrait){
-						&{
-							justify-content: center;
-							align-items: center;
-						}
-					}
-					
-					background-color: consts.$Backdrop1;					
-					
-					h1{
-						font-size: 2.5em;
-
-						margin: {
-							top: 0em;
-							right: 0em;
-							left: 0em;
-							bottom: .25em;
-						};
-						
-						padding: {
-							top: .5em;
-							bottom: .5em;
-						};
-
-					}
-				}
-
-				@media (orientation: portrait){
-					.cards{
-						flex-direction: column;
-						justify-content: center;
-						align-items: center;
-					}
-				}
-
-				@media (orientation: landscape){
-					.cards{
-						flex-direction: row;
-						justify-content: center;
-						align-items: center;
-					}
-				}
-
-				.cards{
-					display: flex;
-				}
-
-				
-
-				&>a{
-					margin-left: 1em;
-					margin-right: 1em;
-				}
-			}
-		}
-		
-	}
+    #intro{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 </style>

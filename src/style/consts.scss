@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hedvig+Letters+Sans&family=Sora:wght@100..800&display=swap');
+
+$Base: light-dark(#dfdfdf,#1f1f1f);
+$Text: light-dark(#1f1f1f,#dfdfdf);
+
+:root{
+    font-family: "Hedvig Letters Sans", sans-serif;
+    color-scheme: light dark;
+}

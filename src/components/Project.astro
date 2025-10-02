@@ -1,99 +1,22 @@
 ---
 const {
-    title = "Default Title",
-    image = "url(/images.jpg)",
-    description = "",
-    url,
+    title = "Untitled",
+    image,
+    url = "#",
+    description = "Undescribed",
 } = Astro.props;
 ---
 
-<a href={url} draggable="false">
-    <div class="background" style=`background-image: ${image}`>
-        <div class="project">
-            <div id="text">
-                <p id="title">{title}</p>
-                <p id="description">{description}</p>
-            </div>
+<a href={url}>
+    <div class="project" style=`background-image: ${image}`>
+        <div class="text">
+            {title}
         </div>
     </div>
 </a>
+
 <style lang="scss">
-    @use "../scss/consts";
-    $width: 17em;
-    $height: 17em;
-    $fade-time: 0.3s;
-
-    a {
-        text-decoration: none;
-    }
-
-    
-
-    .background {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background $fade-time ease;
-
-        border: .125em solid white;
-
-
-        margin: {
-        };
-
-        @media (orientation: portrait){
-            &{
-                margin-bottom: 2em;
-                margin-right: 0px;
-                text-align: center;
-            }
-        }
-
-        @media (orientation: landscape){
-            &{
-                margin-bottom: 2em;
-                margin-right: 2em;
-                
-                text-align: center;
-            }
-        }
-        
-        &,
-        .project {
-            width: $width;
-            height: $height;
-            border-radius: .82em;
-            background-blend-mode: multiply;
-
-        }
-
-        .project{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            transition: all $fade-time ease;
-
-            #text{
-                transition: color $fade-time ease;
-                width: 70%;
-                color: #00000000;
-            }
-        }
-
-        &:hover{
-            .project{
-                backdrop-filter: blur(.3em);
-                #text{
-                    color: consts.$Text;
-                }
-            }
-        }
-
-        
-        
+    .project{
+        width: 60vw;
     }
 </style>

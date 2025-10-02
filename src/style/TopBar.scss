@@ -1,0 +1,40 @@
+@use "../style/consts";
+
+#topbar{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    
+}
+
+#bar{
+    display: flex;
+    width: 60vw;
+    justify-content: space-between;
+    align-items: center;
+    height: 6vh;
+
+    border-radius: 0em 0em 1em 1em;
+
+    #right{
+        display: flex;
+        justify-content: space-around;
+        width: 25em;
+
+        a{
+            text-wrap-mode: nowrap;
+            padding: 1em;
+            font-size: 1.2em;
+            color: consts.$Text;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    div{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
