@@ -1,14 +1,14 @@
 ---
 const {
     title = "Untitled",
-    image,
+    image = "temp.jpg",
     url = "#",
     description = "Undescribed",
 } = Astro.props;
 ---
 
 <a href={url}>
-    <div class="project" style=`background-image: ${image}`>
+    <div class="project" style=`background-image: url(/${image})`>
         <div class="text">
             {title}
         </div>
@@ -16,7 +16,32 @@ const {
 </a>
 
 <style lang="scss">
-    .project{
-        width: 60vw;
+    a{
+        width: 60em;
+        display: flex;
+        justify-content: center;
+        color: #00000000;
+
+        
+        &:hover{
+            .project{
+                background-color: #FFFDD1;
+                #text{
+                    backdrop-filter: blur(.3em);
+                }
+            }
+            
+            
+        }
+        .project:hover{
+            
+        }
+    }
+
+    .project,#text{
+        transition: all .2s ease;
+        background-blend-mode: multiply;
+        width: 55em;
+        height: 20em;
     }
 </style>
