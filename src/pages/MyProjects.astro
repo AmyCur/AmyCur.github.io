@@ -1,5 +1,6 @@
 ---
 import Project from "../components/Project.astro";
+import Video from "../components/Video.astro";
 import Layout from "../layouts/Layout.astro";
 
 const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
@@ -7,10 +8,53 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
 ---
 
 <Layout title="Projects">
+    <script src="../js/ScrollLock.ts" />
+    <script src="../js/ExtraCardAdder.ts" />
+
     <div id="top">
 
     </div>
-    <div id="projects">
-        {projects.map((project: any) => /*project.frontmatter.software == "unity" ? */ <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> /*: ""*/)}
+    <div id="content">
+        <Video width="875" height="492" />
+        <div id="projects">
+            
+            {projects.map((project: any) => project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
+            {projects.map((project: any) => project.frontmatter.software == "unity" && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
+            {projects.map((project: any) => project.frontmatter.software == "unreal" && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
+            {projects.map((project: any) => project.frontmatter.software == "more" && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={"#/"}, description={project.frontmatter.description}/> : "")}
+        </div>
+        
     </div>
 </Layout>
+
+<style lang="scss">
+    #content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 15vh;
+
+        #projects{
+            margin-top: 3em;
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 55em;
+            
+           
+        }
+
+
+        // div{
+        //     margin-top: 5em;
+        //     h1{
+        //         color: #C5B28B;
+        //         margin-bottom: 3em;
+        //     }
+        //     display: flex;
+        //     flex-direction: column;
+        //     align-items: center;
+        // }
+    }
+</style>

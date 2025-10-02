@@ -8,40 +8,86 @@ const {
 ---
 
 <a href={url}>
-    <div class="project" style=`background-image: url(/${image})`>
-        <div class="text">
-            {title}
+    <div class="project">
+        <div class="image" style=`background-image: url(/${image});`></div>
+        <div class="text-holder">
+            <div class="text">
+                <span class="title">{title}</span>
+                <span class="description">{description}</span>
+            </div>
+            
         </div>
     </div>
 </a>
 
 <style lang="scss">
+    @use "../style/consts";
+    $width: 17em;
+
     a{
-        width: 60em;
+        width: $width;
+        height: 25em;
         display: flex;
         justify-content: center;
-        color: #00000000;
-
+        text-decoration: none;
         
         &:hover{
             .project{
-                background-color: #FFFDD1;
-                #text{
-                    backdrop-filter: blur(.3em);
+                .image{
+                    background-color: #C5B28B;
+                    background-size: 250%;
+
+                }
+                .text-holder{
+                    color: consts.$Text;
                 }
             }
-            
-            
         }
-        .project:hover{
-            
-        }
+        
     }
 
-    .project,#text{
+    .project, .text-holder{
+        border-radius: .5em;
         transition: all .2s ease;
         background-blend-mode: multiply;
-        width: 55em;
-        height: 20em;
+        width: $width;
+        height: 10em;
+    }
+
+    .project{
+        background-position: center;
+        background-size: cover;
+
+        .image{
+            transition: all .3s ease;
+            width: $width;
+            height: 10em;
+            background-size: 300%;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            border: .125em solid white;
+            border-radius: 0.3em;
+        }
+
+    }
+
+    .text-holder{
+        display: flex;
+        align-items: center;
+        color: consts.$Text;
+
+
+        .text{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: baseline;
+
+            height: 40%;
+
+            .title{font-size: 1.5em; font-weight: 800; margin-bottom: .5em;}
+        }
     }
 </style>
