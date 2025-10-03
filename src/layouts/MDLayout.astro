@@ -1,11 +1,11 @@
 ---
-import Layout from "./Layout.astro";
+import Main from "./Main.astro";
 import Video from "../components/Video.astro";
 import OSLink from "../components/OSLink.astro";
 const {frontmatter} = Astro.props;
 ---
 
-<Layout title={frontmatter.title}>
+<Main title={frontmatter.title}>
     <div id="main">
         <div id="content">
             <div id="left">
@@ -36,7 +36,7 @@ const {frontmatter} = Astro.props;
             </div>
         </div>
     </div>
-</Layout>
+</Main>
 
 <style lang="scss">
     @use "../style/consts";

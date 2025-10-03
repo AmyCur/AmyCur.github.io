@@ -1,9 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hedvig+Letters+Sans&family=Sora:wght@100..800&display=swap');
 
 $Base: light-dark(#dfdfdf,#1f1f1f);
-$Text: light-dark(#1f1f1f,#dfdfdf);
+$Button: light-dark(#9b9b9b,#32302f);
+$Button-Hover: light-dark(#9b9b9b,#585452);
+$Creme: light-dark(#dec99d, #dec99d);
+// $Text: light-dark(#1f1f1f,#dfdfdf);
+$Text: light-dark($Creme,$Creme);
 
 :root{
     font-family: "Hedvig Letters Sans", sans-serif;
     color-scheme: light dark;
+}
+
+a.button{
+    text-decoration: none;
+    color: $Creme;
+    background-color: $Button;
+    font-size: .77em;
+    width: fit-content;
+    padding: .6em;
+    border-radius: .4em;
+    transition: background-color .18s ease;
+
+    &:hover{
+        background-color: $Button-Hover;
+    }
 }

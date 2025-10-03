@@ -1,22 +1,43 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Main from "../layouts/Main.astro";
 ---
 
-<Layout title="Home">
+<Main title="Home">
     <div id="intro">
         <h1>Hi 👋</h1>
         <p>
-            My names Dylan, [Insert rester here lorem lorem lorem lorem
-            lorem lorem lorem ]
+            My names Dylan, im a games developer from England currently Studying a Level 3 BTEC in Games Design.
         </p>
+        <div id="buttons">
+            <a href="/Projects" class="button">View my Projects</a>
+            <a href="/AboutMe" class="button">More about Me</a>
+        </div>
     </div>
-</Layout>
+</Main>
 
 <style lang="scss">
+    @use "../style/consts";
     #intro{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        #buttons{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 20em;
+            a{
+                scale: 1.3;
+            }
+        }
+
+        p{
+            font-size: 1.5em;
+            width: 60%;
+        }
+
+        
     }
 </style>

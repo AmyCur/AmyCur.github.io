@@ -1,13 +1,13 @@
 ---
 import Project from "../components/Project.astro";
 import Video from "../components/Video.astro";
-import Layout from "../layouts/Layout.astro";
+import Main from "../layouts/Main.astro";
 
 const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
 
 ---
 
-<Layout title="Projects">
+<Main title="Projects">
     <script src="../js/ScrollLock.ts" />
     <script src="../js/ExtraCardAdder.ts" />
 
@@ -25,7 +25,7 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
         </div>
         
     </div>
-</Layout>
+</Main>
 
 <style lang="scss">
     #content{

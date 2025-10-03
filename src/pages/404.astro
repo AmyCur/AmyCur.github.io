@@ -1,0 +1,45 @@
+---
+import TopBar from "../components/TopBar.astro";
+import Main from "../layouts/Main.astro";
+---
+
+<Main title="Error 404">
+    <div class="middle">
+        <div id="emoticon">
+            (*⁠・⁠～⁠・⁠*)
+        </div>
+        <div id="text">
+            <p>Whoops, This page doest exist!</p>
+            <a href="/" class="button">Go Home</a>
+        </div>
+
+    </div>
+</Main>
+
+<style lang="scss">
+    @use "../style/consts";
+
+    .middle{
+        color: consts.$Creme;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;        
+
+        #emoticon{
+            font-size: 8em;
+        }
+
+        #text{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 12vh;
+            font-size: 2em;
+
+            
+        }
+    }
+</style>
