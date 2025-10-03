@@ -13,6 +13,7 @@
 
     @media (pointer:none),
     (pointer:coarse) {
+        z-index: 5;
         width: 100vw;
         height: 10vh;
         position: fixed;
