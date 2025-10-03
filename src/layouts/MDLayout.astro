@@ -2,37 +2,31 @@
 import Main from "./Main.astro";
 import Video from "../components/Video.astro";
 import OSLink from "../components/OSLink.astro";
-const {frontmatter} = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <Main title={frontmatter.title}>
     <div id="main">
         <div id="content">
-            <div id="left">
-                <Video />
-            </div>
-            <div id="right">
-                <div class="top">
-                    <slot />
+            <div class="top"> <Video /> </div>
+            <div class="bottom">
+                <slot />
+                <div id="buttons">
+                    <OSLink
+                        windows={frontmatter.win}
+                        mac={frontmatter.mac}
+                        linux={frontmatter.linux}
+                        text="Download game"
+                    />
+                    <a href="/Projects" class="button"
+                        ><i class="fa-solid fa-arrow-left"></i> Go Back</a
+                    >
                 </div>
-                <div class="bottom">
-                    <div id="buttons">
-                        <OSLink
-                            windows={frontmatter.win}
-                            mac={frontmatter.mac}
-                            linux={frontmatter.linux}
-                            text="Download game">
-                        </OSLink>
-                        <a href="/" class="button"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
-                    </div>
-                    
-                    <!-- <div id="not-working">
+
+                <!-- <div id="not-working">
                         <b>Or</b><br>
                         <p><a href={frontmatter.url !== undefined ? frontmatter.url : "#"}>Manually Download</a></p>
                     </div> -->
-                    
-                </div>
-                
             </div>
         </div>
     </div>
@@ -40,51 +34,42 @@ const {frontmatter} = Astro.props;
 
 <style lang="scss">
     @use "../style/consts";
-    
-    #main{
+
+    #main {
         display: flex;
         justify-content: center;
-        margin-top: 4em;
+        align-items: center;
 
         #content{
-            width: 65%;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
 
-            #right{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                margin-bottom: 1em;
-                width: 45%;
+            .bottom{
+                font-size: 1.15em;
+                width: 80%;
 
-                #brief{
-                    margin-top: 1em;
+                #buttons{
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
                 }
             }
         }
-
-        #buttons{
-            display: flex;
-            justify-content: space-around;
-        }
     }
 
-
-    
     // #main{
     //     display: flex;
     //     justify-content: center;
     //     margin-top: 4em;
     //     text-align: center;
-    
-        
+
     //     #content{
     //         display: flex;
     //         justify-content: space-around;
     //         align-items: center;
     //         width: 70%;
-
 
     //         #right{
     //             text-align: left;
@@ -93,7 +78,6 @@ const {frontmatter} = Astro.props;
     //             align-items: start;
     //             justify-content: space-evenly;
     //             height: 70%;
-
 
     //             .bottom{
     //                 width: 100%;
@@ -122,12 +106,8 @@ const {frontmatter} = Astro.props;
     //                     }
     //                 }
     //             }
-                
+
     //         }
     //     }
     // }
-   
 </style>
-
-
-

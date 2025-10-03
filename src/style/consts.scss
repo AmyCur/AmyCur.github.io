@@ -12,7 +12,7 @@ $Text: light-dark($Creme,$Creme);
     color-scheme: light dark;
 }
 
-a.button{
+a.button, a.link-button{
     text-decoration: none;
     color: $Creme;
     background-color: $Button;

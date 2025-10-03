@@ -15,7 +15,9 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
 
     </div>
     <div id="content">
-        <Video width="875" height="492" />
+        <div id="video">
+            <Video width="875" height="492" />
+        </div>
         <div id="projects">
             
             {projects.map((project: any) => project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
@@ -29,6 +31,20 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
 
 <style lang="scss">
     #content{
+
+        @media (orientation: portrait), (max-width: 898px){
+            #video{
+                display: none;
+            }
+            #projects{
+                align-items: center;
+                flex-direction: column;
+            }
+            
+        }
+
+        
+        
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -36,10 +52,11 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
         margin-top: 15vh;
 
         #projects{
+            
+            justify-content: space-between;
             margin-top: 3em;
             display: flex; 
             flex-wrap: wrap;
-            justify-content: space-between;
             width: 55em;
             
            

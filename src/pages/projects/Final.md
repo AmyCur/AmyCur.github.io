@@ -4,4 +4,5 @@ description: A 3D movement shooter where you use magic in order to combat the au
 image: temp.jpg
 software: unity
 focus: true
+layout: ../../layouts/MDLayout.astro
 ---
