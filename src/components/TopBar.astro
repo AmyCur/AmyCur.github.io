@@ -10,9 +10,26 @@ import "../style/TopBar.scss";
             <h1>{title}</h1>
         </div>
         <div id="right">
-            <a href="/">Home</a>
-            <a href="/Projects">Projects</a>
-            <a href="/AboutMe">About Me</a>
+            <a href="/" id="Home">Home</a>
+            <a href="/Projects" id="Projects">Projects</a>
+            <a href="/AboutMe" id="AboutMe">About Me</a>
         </div>
     </div>
 </div>
+
+<script>
+
+    function isMobile() {
+        const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+        return regex.test(navigator.userAgent);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const right = document.getElementById("right");
+        if(isMobile()){
+            document.getElementById("Home")!.innerHTML = '<i class="fa-solid fa-house"></i>';
+            document.getElementById("Projects")!.innerHTML = '<i class="fa-solid fa-list-check"></i>';
+            document.getElementById("AboutMe")!.innerHTML = '<i class="fa-solid fa-person-dress"></i>';
+        }
+    });
+</script>
