@@ -18,18 +18,30 @@ import "../style/TopBar.scss";
 </div>
 
 <script>
-
     function isMobile() {
         const regex = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
         return regex.test(navigator.userAgent);
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const right = document.getElementById("right");
-        if(isMobile()){
+    const mobile: boolean = isMobile();
+    
+    function iconCheck(){
+        console.log("c");
+        if(mobile || window.innerWidth < 600){
             document.getElementById("Home")!.innerHTML = '<i class="fa-solid fa-house"></i>';
             document.getElementById("Projects")!.innerHTML = '<i class="fa-solid fa-list-check"></i>';
             document.getElementById("AboutMe")!.innerHTML = '<i class="fa-solid fa-person-dress"></i>';
         }
-    });
+        else{
+            document.getElementById("Home")!.innerHTML = 'Home';
+            document.getElementById("Projects")!.innerHTML = 'Projects';
+            document.getElementById("AboutMe")!.innerHTML = 'About Me';
+        }
+    }
+
+    const inter = setInterval(iconCheck!, 100);    
+
+    document.addEventListener("DOMContentLoaded", () => {
+        iconCheck();
+    })
 </script>

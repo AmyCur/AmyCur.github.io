@@ -52,15 +52,19 @@
         width: 60em;
         justify-content: space-between;
         align-items: center;
-        height: 6vh;
+        height: 5em;
         color: consts.$Text;
 
         border-radius: 0em 0em 1em 1em;
 
+        #left{
+            @media (max-width: 400px) {
+                font-size: .7em;
+            }
+        }
         #right {
             display: flex;
             justify-content: space-around;
-            width: 25em;
 
             a {
                 text-wrap-mode: nowrap;
