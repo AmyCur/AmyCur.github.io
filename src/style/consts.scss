@@ -1,11 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hedvig+Letters+Sans&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hedvig+Letters+Sans&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
-$Base: light-dark(#dfdfdf,#1f1f1f);
-$Button: light-dark(#9b9b9b,#32302f);
-$Button-Hover: light-dark(#9b9b9b,#585452);
+$Base: light-dark(#17181c,#17181c);
+$Top-Bar: light-dark(#23262f,#23262f);
+$Top-Bar-Text: light-dark(#baccff, #baccff);
+
+$Button: light-dark(#2b2d34,#2b2d34);
+$Button-Text: light-dark(#fff,#fff);
+$Button-Hover: light-dark(#4a4e5a,#4a4e5a);
 $Creme: light-dark(#dec99d, #dec99d);
+
+$Project-Border: $Top-Bar-Text;
+
 // $Text: light-dark(#1f1f1f,#dfdfdf);
-$Text: light-dark($Creme,$Creme);
+$Text: light-dark(#000,#fff);
 
 :root{
     font-family: "Hedvig Letters Sans", sans-serif;
@@ -14,7 +21,7 @@ $Text: light-dark($Creme,$Creme);
 
 a.button, a.link-button{
     text-decoration: none;
-    color: $Creme;
+    color: $Button-Text;
     background-color: $Button;
     font-size: .77em;
     width: fit-content;

@@ -8,6 +8,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    font-family: "Nunito", sans-serif;
+    background-color: consts.$Top-Bar;
 }
 
 // @media (pointer:none),
@@ -53,7 +56,7 @@
         justify-content: space-between;
         align-items: center;
         height: 5em;
-        color: consts.$Text;
+        color: consts.$Top-Bar-Text;
 
         border-radius: 0em 0em 1em 1em;
 
@@ -70,7 +73,7 @@
                 text-wrap-mode: nowrap;
                 padding: 1em;
                 font-size: 1.2em;
-                color: consts.$Text;
+                color: consts.$Top-Bar-Text;
                 text-decoration: none;
 
                 &:hover {
