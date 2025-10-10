@@ -9,10 +9,15 @@ $Button-Text: light-dark(#fff,#fff);
 $Button-Hover: light-dark(#4a4e5a,#4a4e5a);
 $Creme: light-dark(#dec99d, #dec99d);
 
+$Accent: light-dark(#baccff,#baccff);
+
 $Project-Border: $Top-Bar-Text;
 
 // $Text: light-dark(#1f1f1f,#dfdfdf);
 $Text: light-dark(#000,#fff);
+
+$width: 70em;
+$VerticalModePX: 898px;
 
 :root{
     font-family: "Hedvig Letters Sans", sans-serif;

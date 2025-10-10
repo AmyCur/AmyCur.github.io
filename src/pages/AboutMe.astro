@@ -3,20 +3,90 @@ import Main from "../layouts/Main.astro";
 ---
 
 <Main title="About Me">
-    <h1>Hi</h1>
-    <p>
-        My names Dylan Curry, im an aspiring games developer based in <a
-            href="https://maps.app.goo.gl/yehFP3PC7qg4KscW6"
-            >Salford, Manchester</a
-        >
-    </p>
-    <h1>My Education</h1>
-    <p>
-        In year 10 i joined the <a href="https://www.utcmediacityuk.org.uk/">UTC@MediaCityUK</a> inorder to study Games Design, Computer science and digital information technology.
-    </p>
-        After completing my GCSE's and moving to highschool, i continued at the UTC inorder to study a Level 3 BTEC in Games design, which is what i am currently studying
-    </p>
-    <h1>My work</h1>
-    <p>While attending the UTC@MediaCityUK, i developed a game for a client called Simon horton around his </p>
-    
+    <div id="content">
+        <div id="image">
+            <img src="image.png" alt="" />
+        </div>
+        <div id="text">
+            <h1>Hi</h1>
+            <p>
+                My names Dylan Curry, im an aspiring games developer based in <a
+                    href="https://maps.app.goo.gl/yehFP3PC7qg4KscW6"
+                    >Salford, Manchester</a
+                >
+            </p>
+            <h1>My Education</h1>
+            <p>
+                In year 10 i joined the <a
+                    href="https://www.utcmediacityuk.org.uk/">UTC@MediaCityUK</a
+                > inorder to study Games Design, Computer science and digital information
+                technology.
+            </p>
+            After completing my GCSE's and moving to highschool, i continued at the
+            UTC inorder to study a Level 3 BTEC in Games design, which is what i
+            am currently studying
+
+            <h1>My work</h1>
+            <p>
+                I have developed a game called <a
+                    href="/projects/The Meta Menaces">The Meta Menaces</a
+                > for a client. My client was Simon Horton, the Co-Founder and CEO
+                of Iconika and creator of the Meta Menaces IP. He requested that
+                i develop a 3D FPS game, which can
+            </p>
+
+            <h1>My hobbies</h1>
+            <p>
+                I have developed a game called <a
+                    href="/projects/The Meta Menaces">The Meta Menaces</a
+                > for a client. My client was Simon Horton, the Co-Founder and CEO
+                of Iconika and creator of the Meta Menaces IP. He requested that
+                i develop a 3D FPS game, which can
+            </p>
+        </div>
+    </div>
 </Main>
+
+<style lang="scss">
+    @use "../style/consts";
+
+    #image {
+        width: 5em;
+        height: 5em;
+        overflow: hidden;
+        border-radius: 5em;
+        border: solid consts.$Accent 0.2em;
+        border-bottom: solid consts.$Accent .4em;
+        margin-top: 0em;
+
+        transition:  margin .3s ease;
+
+        @media (max-width: consts.$VerticalModePX*1.5) {
+            margin-top: 1em;
+        }
+
+        img {
+            width: 5em;
+        }
+    }
+
+    #content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #text {
+        margin-left: 1em;
+        margin-right: 1em;
+        max-width: 90vw;
+        overflow: scroll;
+        display: flex;
+        text-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: consts.$width/2;
+    }
+</style>

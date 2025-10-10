@@ -30,9 +30,10 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
 </Main>
 
 <style lang="scss">
+    @use "../style/consts";
     #content{
 
-        @media (orientation: portrait), (max-width: 898px){
+        @media (orientation: portrait), (max-width: consts.$VerticalModePX){
             #video{
                 display: none;
             }
