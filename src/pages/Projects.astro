@@ -20,8 +20,8 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
         </div>
         <div id="projects">
             
-            {projects.map((project: any) => project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
-            {projects.map((project: any) => project.frontmatter.software == "unity" && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
+            {projects.map((project: any) => project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}, software={project.frontmatter.software.split(" . ")}/> : "")}
+            {projects.map((project: any) => project.frontmatter.software.contains("unity") && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}, software={project.frontmatter.software.split(" . ")}/> : "", )}
             {projects.map((project: any) => project.frontmatter.software == "unreal" && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
             {projects.map((project: any) => project.frontmatter.software == "more" && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={"#/"}, description={project.frontmatter.description}/> : "")}
         </div>
