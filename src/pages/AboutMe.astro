@@ -50,11 +50,13 @@ import Main from "../layouts/Main.astro";
 <style lang="scss">
     @use "../style/consts";
 
+    $width: 9em;
+
     #image {
-        width: 5em;
-        height: 5em;
+        width: $width;
+        height: $width;
         overflow: hidden;
-        border-radius: 5em;
+        border-radius: $width;
         border: solid consts.$Accent 0.2em;
         border-bottom: solid consts.$Accent .4em;
         margin-top: 0em;
@@ -66,7 +68,7 @@ import Main from "../layouts/Main.astro";
         }
 
         img {
-            width: 5em;
+            width: $width;
         }
     }
 
