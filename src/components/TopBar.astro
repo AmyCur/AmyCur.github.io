@@ -26,7 +26,6 @@ import "../style/TopBar.scss";
     const mobile: boolean = isMobile();
     
     function iconCheck(){
-        console.log("c");
         if(mobile || window.innerWidth < 600){
             document.getElementById("Home")!.innerHTML = '<i class="fa-solid fa-house"></i>';
             document.getElementById("Projects")!.innerHTML = '<i class="fa-solid fa-list-check"></i>';

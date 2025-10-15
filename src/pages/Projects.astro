@@ -3,7 +3,7 @@ import Project from "../components/Project.astro";
 import Video from "../components/Video.astro";
 import Main from "../layouts/Main.astro";
 
-const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
+const projects = Object.values(import.meta.glob('./projects/*.mdx', { eager: true }));
 
 ---
 
@@ -20,9 +20,9 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
         </div>
         <div id="projects">
             
-            {projects.map((project: any) => project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}, software={project.frontmatter.software.split(" . ")}/> : "")}
-            {projects.map((project: any) => project.frontmatter.software.contains("unity") && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}, software={project.frontmatter.software.split(" . ")}/> : "", )}
-            {projects.map((project: any) => project.frontmatter.software == "unreal" && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}/> : "")}
+            {projects.map((project: any) => project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}, software={project.frontmatter.software.split(" ").join(" • ")}/> : "")}
+            {projects.map((project: any) => project.frontmatter.software.includes("Unity") && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}, software={project.frontmatter.software.split(" ").join(" • ")}/> : "")}
+            {projects.map((project: any) => project.frontmatter.software.includes("Unreal") && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={project.url}, description={project.frontmatter.description}, software={project.frontmatter.software.split(" ").join(" • ")}/> : "")}
             {projects.map((project: any) => project.frontmatter.software == "more" && !project.frontmatter.focus ? <Project title={project.frontmatter.title}, image={project.frontmatter.image}, url={"#/"}, description={project.frontmatter.description}/> : "")}
         </div>
         
