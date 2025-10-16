@@ -1,8 +1,8 @@
 ---
-const {width=720, height=405, url="https://www.youtube.com/embed/wN-mZtbX2Pg?si=TKW43YUCFMHevELc"} = Astro.props;
+const {width=720, height=405, url="wN-mZtbX2Pg?si=TKW43YUCFMHevELc"} = Astro.props;
 ---
 
-<iframe width={width} height={height} src={url}/>
+<iframe width={width} height={height} src={`https://www.youtube.com/embed/${url}`}/>
 
 <style lang="scss">
     @use "../style/consts";
