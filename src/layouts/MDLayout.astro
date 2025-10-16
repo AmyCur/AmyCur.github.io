@@ -8,9 +8,11 @@ const { frontmatter } = Astro.props;
 <Main title={frontmatter.title}>
     <div id="main">
         <div id="content">
-            <div class="top"> <Video /> </div>
+            <div class="top"> <Video url={frontmatter.video}/> </div>
             <div class="bottom">
                 <slot />
+                <h2>Software</h2>
+                {frontmatter.software.split(" ").join(" • ")}   
                 <div id="buttons">
                     <OSLink
                         windows={frontmatter.win}
