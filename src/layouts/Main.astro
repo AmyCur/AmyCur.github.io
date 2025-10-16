@@ -47,7 +47,13 @@ const {title} = Astro.props;
 	#holder{
         width: 100vw;
         min-height: 94vh;
-        overflow: hidden;
+				
+		@media (pointer:none),
+	    (pointer:coarse) {
+			&{
+				overflow: visible;
+			}
+		}
 
         display: flex;
         justify-content: center;
