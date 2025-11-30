@@ -1,87 +1,102 @@
-<!DOCTYPE html>
+---
+import Software from "../components/Software.astro";
+---
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative CV</title>
-</head>
-<body>
-    <div id="box">
-        <div id="topbar">
-            <span id="min">X</span>
-            <span>0</span>
-            <span>L</span>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Creative CV</title>
+    </head>
+    <body>
+        <div id="contents">
+            <div id="programs">
+                <Software title="Contacts.exe" icon="JumpShot.png" />
+                <Software title="Personal Summary.exe" icon="JumpShot.png" />
+                <Software title="Work history.exe" icon="JumpShot.png" />
+                <Software title="Education.exe" icon="JumpShot.png" />
+            </div>
         </div>
-        <div id="content">
-            Here is my content
+        <div id="window">
+            a
         </div>
-    </div>
-</body>
+    </body>
 </html>
 
 <style lang="scss">
-    body{
+
+    :root{
+
+    }
+
+    body,html{
         margin: 0px;
     }
-    #box{
-
-        margin-top: 5vh;
-        left: 30em;
-        top: 10em;
-
+    #contents {
+        width: 100vw;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
 
+        #programs {
+            width: 70vw;
+            height: 50vh;
 
-        #topbar{
-
-            
-            span{
-                display: flex;
-                height: 1vh;
-            }
-            
             display: flex;
             justify-content: space-around;
-            align-content: center;
+            align-items: center;
 
-
-            background-color: blueviolet;
-            border: 1px solid blueviolet;
-            height: 30px;
-            width: 60em;
-
-            
+            background-color: crimson;
         }
+    }
 
-        #content{
-            transition: all .3s ease;
-            display: flex;
-            justify-content: center;
-            height: 80vh;
-            width: 60em;
+    $window-width: 80vw;
+    $window-height: 70vh;
 
-            border: {
-                left: 1px solid black;
-                right: 1px solid black;
-                bottom: 1px solid black;
-            };
-        }
+    #window{
+        position: absolute;
+        left: 50vw - ($window-width/2);
+        top: 50vh - ($window-height/2);
+        width: $window-width;
+        height: $window-height;
+        background-color: black;
+        opacity: 0;
+        transition: all .3s ease;
+        z-index: -1;
     }
 </style>
 
 <script lang="js">
-
-    let minimised = false;
-
     addEventListener("DOMContentLoaded", () => {
-        document.getElementById("min").addEventListener("click", () => {
-            document.getElementById("content").style.height= minimised ? "80vh" : "0vh";
-            document.getElementById("content").style.color= minimised ? "#000" : "#00000000";
-            minimised=!minimised;
-        });
+        let window = {
+            active: false,
+            element: document.getElementById("window")
+        }
+
+        const softwares = document.getElementsByClassName("software");
+
+        document.addEventListener("click", (event) => {
+            // I hate this language i want to fucking hang myself so bad
+            console.log(`${event.target.id} != ${window.element.id}`);
+            console.log(window.active);
+            if(window.active && event.target!=window.element){
+                console.log(`${event.target} != ${window.element}`);
+                if(window.active){
+                    console.log(event.target);
+                    window.element.style.opacity=0;
+                    window.element.style.zIndex=-1;
+                }     
+            }
+        })
         
+        for (const software of softwares) {
+            software.addEventListener("click", () => {
+                window.element.style.opacity=1;
+                window.element.style.zIndex=1;
+                window.active = !window.active;
+            });            
+        }        
     });
 </script>

@@ -1,0 +1,27 @@
+---
+const { title, icon } = Astro.props;
+---
+
+<div class="software">
+    <div id="icon" style=`background-image: url(software/${icon});`>
+        <img src="" alt="" id="shortcut-icon" />
+    </div>
+    <div id="title">{title}</div>
+</div>
+
+<style lang="scss">
+    .software{
+        width: 10em;
+        height: 10em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-wrap: nowrap;
+        #icon{
+            width: 7em;
+            height: 7em;
+            border-radius: 1em;
+        }
+    }
+</style>
