@@ -69,34 +69,30 @@ import Software from "../components/Software.astro";
 </style>
 
 <script lang="js">
-    addEventListener("DOMContentLoaded", () => {
-        let window = {
-            active: false,
-            element: document.getElementById("window")
+    let page = {
+        active: false,
+        element: document.getElementById("window"),
+
+        UpdatePageStyle: function(active){
+            this.element.style.zIndex = active ? 1 : -1;
+            this.element.style.opacity = active ? 1 : 0;
+            console.log(this);
         }
+    }
 
-        const softwares = document.getElementsByClassName("software");
+    const softwares = document.getElementsByClassName("software");
 
-        document.addEventListener("click", (event) => {
-            // I hate this language i want to fucking hang myself so bad
-            console.log(`${event.target.id} != ${window.element.id}`);
-            console.log(window.active);
-            if(window.active && event.target!=window.element){
-                console.log(`${event.target} != ${window.element}`);
-                if(window.active){
-                    console.log(event.target);
-                    window.element.style.opacity=0;
-                    window.element.style.zIndex=-1;
-                }     
-            }
-        })
-        
-        for (const software of softwares) {
-            software.addEventListener("click", () => {
-                window.element.style.opacity=1;
-                window.element.style.zIndex=1;
-                window.active = !window.active;
-            });            
-        }        
-    });
+    for(const soft of softwares){
+        soft.addEventListener("click", async() => {
+            page.UpdatePageStyle(true);
+            page.active = true;
+        });
+    }
+
+    document.addEventListener("click", (event) => {
+        if(event.target!==page.element && page.active){
+            page.active=false;
+            page.UpdatePageStyle(false);
+        }
+    })
 </script>
