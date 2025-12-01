@@ -2,7 +2,7 @@
 const { title, icon } = Astro.props;
 ---
 
-<div class="software">
+<div class="software" data-title={title}>
     <div id="icon" style=`background-image: url(software/${icon});`>
         <img src="" alt="" id="shortcut-icon" />
     </div>

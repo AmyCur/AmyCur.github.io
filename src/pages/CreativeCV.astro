@@ -19,7 +19,23 @@ import Software from "../components/Software.astro";
             </div>
         </div>
         <div id="window">
-            a
+            <div id="top-bar">
+                <div id="left">Name</div>
+                <div id="right">close button</div>
+            </div>
+            <div id="content">Default window text (this system is stupid)</div>
+        </div>
+        <div id="Contacts">
+            This is my contacts content
+        </div>
+        <div id="Personal">
+            This is my personal content
+        </div>
+        <div id="Work">
+            This is my work content
+        </div>
+        <div id="Education">
+            This is my education content
         </div>
     </body>
 </html>
@@ -27,7 +43,13 @@ import Software from "../components/Software.astro";
 <style lang="scss">
 
     :root{
+        color-scheme: light dark;
+        font-family: sans-serif;
+    }
 
+    #Contacts,#Personal,#Work,#Education{
+        display: none;
+        position: absolute;
     }
 
     body,html{
@@ -61,10 +83,23 @@ import Software from "../components/Software.astro";
         top: 50vh - ($window-height/2);
         width: $window-width;
         height: $window-height;
-        background-color: black;
-        opacity: 0;
-        transition: all .3s ease;
-        z-index: -1;
+        background-color: light-dark(#fff, #2D3034);
+        color: light-dark(black, white);
+        // opacity: 0;
+        transition: opacity .3s ease;
+        // z-index: -1;
+        display: flex;
+        flex-direction: column;
+
+        #top-bar{
+            display: flex;
+            justify-content: space-between;
+            background-color: #18191B;
+        }
+
+        #content{
+            margin-left: 1em;
+        }
     }
 </style>
 
@@ -72,27 +107,61 @@ import Software from "../components/Software.astro";
     let page = {
         active: false,
         element: document.getElementById("window"),
+        content: document.getElementById("content"),
+        name: document.getElementById("left"),
 
-        UpdatePageStyle: function(active){
-            this.element.style.zIndex = active ? 1 : -1;
-            this.element.style.opacity = active ? 1 : 0;
-            console.log(this);
+        UpdatePageStyle: function(){
+            this.element.style.zIndex = this.active ? 1 : -1;
+            this.element.style.opacity = this.active ? 1 : 0;
         }
     }
 
     const softwares = document.getElementsByClassName("software");
+    let justActive=false;
 
     for(const soft of softwares){
-        soft.addEventListener("click", async() => {
-            page.UpdatePageStyle(true);
-            page.active = true;
+        soft.addEventListener("click", () => {
+            page.active=true;
+            page.UpdatePageStyle();
         });
     }
 
+    const containers = ["Contacts", "Personal", "Work", "Education"]
+
+    function PopulateBox(event){
+        // Im such a failure
+        const parent = event.target.getAttribute('class') != null ? event.target : event.target.parentNode;
+        
+        if(parent!=null){
+            const link = parent.dataset;
+            if(link.title!=null){
+                for(const c of containers){
+                    if(link.title.includes(c)){
+                        page.content.innerHTML = document.getElementById(c).innerHTML;
+                        page.name.innerHTML = link.title.split(".")[0];
+                    }
+                }
+                
+            }
+            
+        }
+       
+
+    }
+
     document.addEventListener("click", (event) => {
-        if(event.target!==page.element && page.active){
+        let ware = false;
+
+        // I should be more embarrased, this is humiliating
+        if(event.target.getAttribute('class') || event.target.parentNode.getAttribute('class')==="software"){ 
+            ware=true;
+        }
+
+        PopulateBox(event);
+
+        if(event.target!==page.element && !ware){
             page.active=false;
-            page.UpdatePageStyle(false);
+            page.UpdatePageStyle();
         }
     })
 </script>
