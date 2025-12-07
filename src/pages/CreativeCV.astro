@@ -26,33 +26,59 @@ import Software from "../components/Software.astro";
             <div id="content">Default window text (this system is stupid)</div>
         </div>
         <div id="Contacts">
-            This is my contacts content
+            Dylan Curry Email: AmyCurry42@gmail.com  <br>
+            LinkedIn: <a href="https://www.linkedin.com/in/dylan-curry-9a4916395/">Dylan Curry</a>
         </div>
         <div id="Personal">
-            This is my personal content
+            A qualified games designer with experience designing, programming
+            and testing games for clients. Experienced with both Unity and
+            Unreal developing both 2D and 3D games of varying genre.
         </div>
         <div id="Work">
-            This is my work content
+            <h4>Website developer, UNIT 21 VENUE LTD (2023)</h4>
+            Developed a vital, informational website that displayed info about the
+            bar and allowed for people to get in touch for bookings.
+            <ul>
+                <li>
+                    Developed a vital website which enabled people to book
+                    parties
+                </li>
+                <li>Published a website</li>
+                <li>Hosted a website</li>
+            </ul>
+
+            <h4>Lead games developer, ICONIKA LTD (2025)</h4>
+            Developed a 3D Movement FPS vertical slice based on ICONIKA's Meta Menaces
+            novel, in which I: programmed all of the code, designed and created all
+            of the levels and lead the 3D modelling.
+            <ul>
+                <li>Created a full 3D vertical slice in 2 months</li>
+                <li>
+                    Developed gameplay and artstyle to suit a pre-existing IP
+                </li>
+                <li>Lead and organised a team of four</li>
+            </ul>
         </div>
-        <div id="Education">
-            This is my education content
-        </div>
+        <div id="Education">Level 3 BTEC in games design | UTC@MediaCityUk (2024 - 2026)</div>
     </body>
 </html>
 
 <style lang="scss">
-
-    :root{
+    :root {
         color-scheme: light dark;
         font-family: sans-serif;
     }
 
-    #Contacts,#Personal,#Work,#Education{
+    #Contacts,
+    #Personal,
+    #Work,
+    #Education {
         display: none;
         position: absolute;
     }
 
-    body,html{
+    body,
+    html {
         margin: 0px;
     }
     #contents {
@@ -77,27 +103,27 @@ import Software from "../components/Software.astro";
     $window-width: 80vw;
     $window-height: 70vh;
 
-    #window{
+    #window {
         position: absolute;
         left: 50vw - ($window-width/2);
         top: 50vh - ($window-height/2);
         width: $window-width;
         height: $window-height;
-        background-color: light-dark(#fff, #2D3034);
+        background-color: light-dark(#fff, #2d3034);
         color: light-dark(black, white);
-        // opacity: 0;
-        transition: opacity .3s ease;
-        // z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
         display: flex;
         flex-direction: column;
 
-        #top-bar{
+        #top-bar {
             display: flex;
             justify-content: space-between;
-            background-color: #18191B;
+            background-color: #18191b;
         }
 
-        #content{
+        #content {
             margin-left: 1em;
         }
     }
@@ -110,58 +136,61 @@ import Software from "../components/Software.astro";
         content: document.getElementById("content"),
         name: document.getElementById("left"),
 
-        UpdatePageStyle: function(){
+        UpdatePageStyle: function () {
             this.element.style.zIndex = this.active ? 1 : -1;
             this.element.style.opacity = this.active ? 1 : 0;
-        }
-    }
+        },
+    };
 
     const softwares = document.getElementsByClassName("software");
-    let justActive=false;
+    let justActive = false;
 
-    for(const soft of softwares){
+    for (const soft of softwares) {
         soft.addEventListener("click", () => {
-            page.active=true;
+            page.active = true;
             page.UpdatePageStyle();
         });
     }
 
-    const containers = ["Contacts", "Personal", "Work", "Education"]
+    const containers = ["Contacts", "Personal", "Work", "Education"];
 
-    function PopulateBox(event){
+    function PopulateBox(event) {
         // Im such a failure
-        const parent = event.target.getAttribute('class') != null ? event.target : event.target.parentNode;
-        
-        if(parent!=null){
+        const parent =
+            event.target.getAttribute("class") != null
+                ? event.target
+                : event.target.parentNode;
+
+        if (parent != null) {
             const link = parent.dataset;
-            if(link.title!=null){
-                for(const c of containers){
-                    if(link.title.includes(c)){
-                        page.content.innerHTML = document.getElementById(c).innerHTML;
+            if (link.title != null) {
+                for (const c of containers) {
+                    if (link.title.includes(c)) {
+                        page.content.innerHTML =
+                            document.getElementById(c).innerHTML;
                         page.name.innerHTML = link.title.split(".")[0];
                     }
                 }
-                
             }
-            
         }
-       
-
     }
 
     document.addEventListener("click", (event) => {
         let ware = false;
 
         // I should be more embarrased, this is humiliating
-        if(event.target.getAttribute('class') || event.target.parentNode.getAttribute('class')==="software"){ 
-            ware=true;
+        if (
+            event.target.getAttribute("class") ||
+            event.target.parentNode.getAttribute("class") === "software"
+        ) {
+            ware = true;
         }
 
         PopulateBox(event);
 
-        if(event.target!==page.element && !ware){
-            page.active=false;
+        if (event.target !== page.element && !ware) {
+            page.active = false;
             page.UpdatePageStyle();
         }
-    })
+    });
 </script>
