@@ -26,9 +26,12 @@ import Software from "../components/Software.astro";
             <div id="content">Default window text (this system is stupid)</div>
         </div>
         <div id="Contacts">
-            Dylan Curry Email: AmyCurry42@gmail.com  <br>
-            LinkedIn: <a href="https://www.linkedin.com/in/dylan-curry-9a4916395/">Dylan Curry</a>
-        </div>
+            Amy Curry Email: AmyCurry42@gmail.com <br />
+            LinkedIn: <a
+                href="https://www.linkedin.com/in/Amy-curry-9a4916395/"
+                >Amy Curry</a
+            >
+        </div>\
         <div id="Personal">
             A qualified games designer with experience designing, programming
             and testing games for clients. Experienced with both Unity and
@@ -59,7 +62,9 @@ import Software from "../components/Software.astro";
                 <li>Lead and organised a team of four</li>
             </ul>
         </div>
-        <div id="Education">Level 3 BTEC in games design | UTC@MediaCityUk (2024 - 2026)</div>
+        <div id="Education">
+            Level 3 BTEC in games design | UTC@MediaCityUk (2024 - 2026)
+        </div>
     </body>
 </html>
 
@@ -96,7 +101,8 @@ import Software from "../components/Software.astro";
             justify-content: space-around;
             align-items: center;
 
-            background-color: crimson;
+            background-color: #16161b;
+            border-radius: 1em;
         }
     }
 
@@ -135,61 +141,59 @@ import Software from "../components/Software.astro";
         element: document.getElementById("window"),
         content: document.getElementById("content"),
         name: document.getElementById("left"),
+        softwares: document.getElementsByClassName("software"),
+        containers: ["Contacts", "Personal", "Work", "Education"],
 
-        UpdatePageStyle: function () {
+        UpdatePageStyle() {
             this.element.style.zIndex = this.active ? 1 : -1;
             this.element.style.opacity = this.active ? 1 : 0;
         },
-    };
 
-    const softwares = document.getElementsByClassName("software");
+        PopulateBox(event) {
+            const parent =
+                event.target.getAttribute("class") != null
+                    ? event.target
+                    : event.target.parentNode;
 
-    for (const soft of softwares) {
-        soft.addEventListener("click", () => {
-            page.active = true;
-            page.UpdatePageStyle();
-        });
-    }
-
-    const containers = ["Contacts", "Personal", "Work", "Education"];
-
-    function PopulateBox(event) {
-        // Im such a failure
-        const parent =
-            event.target.getAttribute("class") != null
-                ? event.target
-                : event.target.parentNode;
-
-        if (parent != null) {
-            const link = parent.dataset;
-            if (link.title != null) {
-                for (const c of containers) {
-                    if (link.title.includes(c)) {
-                        page.content.innerHTML =
-                            document.getElementById(c).innerHTML;
-                        page.name.innerHTML = link.title.split(".")[0];
+            if (parent != null) {
+                const link = parent.dataset;
+                if (link.title != null) {
+                    for (const c of this.containers) {
+                        if (link.title.includes(c)) {
+                            this.content.innerHTML =
+                                document.getElementById(c).innerHTML;
+                            this.name.innerHTML = link.title.split(".")[0];
+                        }
                     }
                 }
             }
-        }
+        },
+
+        Init() {
+            for (const soft of this.softwares) {
+                soft.addEventListener("click", () => {
+                    this.active = true;
+                    this.UpdatePageStyle();
+                });
+            }
+
+            document.addEventListener("click", (event) => {
+                let isSoftware = false;
+
+                // I should be more embarrased, this is humiliating
+
+                isSoftware = event.target.getAttribute("class") || event.target.parentNode.getAttribute("class") === "software";
+
+                this.PopulateBox(event);
+
+                if (event.target !== this.element && !isSoftware) {
+                    this.active = false;
+                    this.UpdatePageStyle();
+                }
+            });
+        },
     }
 
-    document.addEventListener("click", (event) => {
-        let ware = false;
-
-        // I should be more embarrased, this is humiliating
-        if (
-            event.target.getAttribute("class") ||
-            event.target.parentNode.getAttribute("class") === "software"
-        ) {
-            ware = true;
-        }
-
-        PopulateBox(event);
-
-        if (event.target !== page.element && !ware) {
-            page.active = false;
-            page.UpdatePageStyle();
-        }
-    });
+    document.addEventListener("DOMContentLoaded", page.Init());
+    
 </script>

@@ -3,7 +3,7 @@ const { title, icon } = Astro.props;
 ---
 
 <div class="software" data-title={title}>
-    <div id="icon" style=`background-image: url(software/${icon});`>
+    <div id="icon" style=`background-image: url(/${icon});`>
         <img src="" alt="" id="shortcut-icon" />
     </div>
     <div id="title">{title}</div>
@@ -18,6 +18,12 @@ const { title, icon } = Astro.props;
         justify-content: center;
         align-items: center;
         text-wrap: nowrap;
+
+        transition: scale .18s ease;
+
+        &:hover{
+            scale: 1.1;
+        }
         #icon{
             width: 7em;
             height: 7em;
